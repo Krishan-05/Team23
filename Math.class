@@ -3,7 +3,7 @@ public class Math {
 //***************************
     Developer: Yusaf Sajid
     University ID: 230117835
-    Function: Max Function
+    Function: Max Function!
     /
 
     public int max(int x, int y){
