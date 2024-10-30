@@ -1,4 +1,4 @@
-//CREATE YOUR OWN BRANCH AND GIT PULL BEFORE!!!
+//Base Structure for Math Class. Create own branch with function inside.
 public class MathClass{
     
 }
