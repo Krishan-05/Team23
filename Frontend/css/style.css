@@ -1,156 +1,157 @@
-html, body {
-    height: 100%; 
-    width: 100%; 
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Sets the margin of all pages to 0 and sets font size and font */
-*{
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 18px;
+* {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    flex: 1;  
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
 }
 
-h1{
-    padding-left: 20px;
+h1 {
+  padding-left: 20px;
 }
-
-
 
 .aboutus {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    text-align: left;
-    width: 100%;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+  width: 100%;
+  flex: 1;
 }
 
 /* Text within the about us */
-.aboutus p{
-    color:  #FF5B00; 
-    font-family: "Space Grotesk", sans-serif;  
-}   
-
+.aboutus p {
+  color: #ff5b00;
+  font-family: "Space Grotesk", sans-serif;
+}
 
 /* Main header Styles */
-#main-header{
-    background: #100E39; /* Sets background of header to black */   
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%; 
-    height: 110px;
-    justify-content: space-between; /* Controls alignment of elements on the main axis, sets it to space-between*/
-    align-items: center;            
-}   
+#main-header {
+  background: #100e39; /* Sets background of header to black */
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 110px;
+  justify-content: space-between; /* Controls alignment of elements on the main axis, sets it to space-between*/
+  align-items: center;
+}
 
 /* Navbar in the main header */
-.navigation a{
-    color: whitesmoke;
-    text-align: center;
-    padding: 14px 16px;
-    font-size: 22px;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    float: left;
-    transition: all 0.3s;   /* Smoothly tranistions the background colour and moves the box in 0.3s  */  
+.navigation a {
+  color: whitesmoke;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 22px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  transition: all 0.3s; /* Smoothly tranistions the background colour and moves the box in 0.3s  */
 }
 
 /* Activates when the element in the navBar is hovered on*/
 .navigation a:hover {
-    background-color: whitesmoke; /* Sets text */
-    color: #100E39;  /* Sets text colour to white*/
-    transform: translateY(-7px); /* Moves the nav box up 7px*/
+  background-color: whitesmoke; /* Sets text */
+  color: #100e39; /* Sets text colour to white*/
+  transform: translateY(-7px); /* Moves the nav box up 7px*/
 }
 
 /* Actual Navbar styles */
-.navigation{
-    padding-right: 40px;
-}   
-
+.navigation {
+  padding-right: 40px;
+}
 
 /* Styles for the footer of the page */
 #footer {
-    background: #6C6C84; /* Sets bacground-colour of the footer to black */
-    display: flex;
-    width: 100%;
-    height: 250px;
-    justify-content: center;
-    align-items: center;              
+  background: #6c6c84; /* Sets bacground-colour of the footer to black */
+  display: flex;
+  width: 100%;
+  height: 250px;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-container {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    height: 100%;
-    width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 /* Affects the images within the footer*/
-#footer img{
-    padding: 8px;
-
+#footer img {
+  padding: 8px;
 }
 
-.footertext, .socialimages{
-    display: flex;
-    flex-wrap: wrap ;
-    justify-content: center;
-    align-items: top;
-    height: auto;
-    color: #E0EAF2;
-    margin: 0;
-    width:100%
+.footertext,
+.socialimages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: top;
+  height: auto;
+  color: #e0eaf2;
+  margin: 0;
+  width: 100%;
 }
 
-.footertext p, h2{
-    margin: 0;
-    padding-top: 15px;
-
+.footertext p,
+h2 {
+  margin: 0;
+  padding-top: 15px;
 }
 
-h2{
-    text-decoration: underline;
+h2 {
+  text-decoration: underline;
 }
 
-.socialimages{
-    border-bottom: 1px solid #D4D4D4;
+.socialimages {
+  border-bottom: 1px solid #d4d4d4;
 }
 
-.footerlinks{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;  
-    height: 100%;
-    width:100%;
-    text-align: left;
-    border-bottom: 1px solid #F5F5F5;
+.footerlinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+  text-align: left;
+  border-bottom: 1px solid #f5f5f5;
 }
 
-.footerlinks p{
-    margin: 0;
-    padding-top: 3px;
-    padding-left: 5px;
-    
+.footerlinks p {
+  margin: 0;
+  padding-top: 3px;
 }
 
 .footerlinks p:hover {
-    color: #100E39;  
-    font-weight: bold ;
+  color: #100e39;
+  font-weight: bold;
 }
 
-.beactivefooter{    
-    display: flex;
-    height: 50px;   
-    align-items: center;
+.beactivefooter {
+  display: flex;
+  height: 50px;
+  align-items: center;
+}
+
+.footerlinks {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto auto auto;
 }
