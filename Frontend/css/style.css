@@ -76,61 +76,6 @@ h1, h2{
 .navigation{
     padding-right: 40px;
 }   
-/* Dropdown styling */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown content styling */
-.dropdown-products {
-  display: none;
-  position: absolute;
-  background-color: #ff5b00; /* Matches the color scheme */
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border-radius: 4px; /* Rounded edges */
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: whitesmoke;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  font-size: 18px; /* Consistent with overall font size */
-  transition: all 0.3s ease;
-}
-
-/* Hover effects for dropdown links */
-.dropdown-content a:hover {
-  background-color: whitesmoke;
-  color: #100e39;
-}
-
-/* Show dropdown on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Ensure dropdown button aligns with navbar styles */
-.navigation .dropdown > a {
-  color: whitesmoke;
-  text-align: center;
-  padding: 14px 16px;
-  font-size: 22px;
-  float: left;
-  transition: all 0.3s ease;
-}
-
-/* Hover effect for dropdown button */
-.navigation .dropdown > a:hover {
-  background-color: whitesmoke;
-  color: #100e39;
-  transform: translateY(-7px);
-}
-
 
 
 /* Styles for the footer of the page */
@@ -152,4 +97,3 @@ h1, h2{
     padding: 10px;
     color: whitesmoke;
 }
-
