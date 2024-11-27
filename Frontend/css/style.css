@@ -24,21 +24,6 @@ h1 {
   padding-left: 20px;
 }
 
-.aboutus {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  text-align: left;
-  width: 100%;
-  flex: 1;
-}
-
-/* Text within the about us */
-.aboutus p {
-  color: #ff5b00;
-  font-family: "Space Grotesk", sans-serif;
-}
-
 /* Main header Styles */
 #main-header {
   background: #100e39; /* Sets background of header to black */
