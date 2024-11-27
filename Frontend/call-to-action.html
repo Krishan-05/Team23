@@ -7,6 +7,38 @@
     <link rel="stylesheet" type="text/css" href="css/call-to-action.css" /> 
     <title>Homepage</title>
 </head>
+<script>
+    const items = document.querySelectorAll('.carousel-item');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    let current = 0;
+
+    function updateCarousel(index) {
+        items.forEach((item, i) => {
+            item.classList.remove('active');
+            if (i === index) {
+                item.classList.add('active');
+            }
+        });
+    }
+
+    prev.addEventListener('click', () => {
+        current = (current - 1 + items.length) % items.length;
+        updateCarousel(current);
+    });
+
+    next.addEventListener('click', () => {
+        current = (current + 1) % items.length;
+        updateCarousel(current);
+    });
+
+    // Auto-play (optional)
+    setInterval(() => {
+        current = (current + 1) % items.length;
+        updateCarousel(current);
+    }, 5000);
+</script>
+
 <body>
     <main>
         <header id="main-header">
@@ -32,6 +64,53 @@
                 From essential protein powders to state-of-the-art gear, we've got you covered!</p>
 
         </section>
+
+        <section class="call-to-action">
+            <div class="cta-box newsletter">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Stay updated on the latest products and exclusive offers!</p>
+                <form action="subscribe.html" method="post">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        
+            <div class="cta-box reviews">
+                <h2>Customer Reviews</h2>
+                <div class="carousel">
+                    <div class="carousel-item active">
+                        <p>"Fantastic quality and excellent service. Highly recommend!"</p>
+                        <span>- Sarah W.</span>
+                    </div>
+                    <div class="carousel-item">
+                        <p>"The gear is top-notch! Helped me step up my workouts."</p>
+                        <span>- Mark T.</span>
+                    </div>
+                    <div class="carousel-item">
+                        <p>"Love the apparel—stylish and functional. Will buy again!"</p>
+                        <span>- Emily R.</span>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="prev">❮</button>
+                    <button class="next">❯</button>
+                </div>
+            </div>
+        
+            <div class="cta-box products">
+                <h2>View Our Products</h2>
+                <p>Discover the best gear, apparel, and supplements for your fitness journey.</p>
+                <div class="product-gallery">
+                    <!-- Placeholder for product images -->
+                    <div class="product-item">Image 1</div>
+                    <div class="product-item">Image 2</div>
+                    <div class="product-item">Image 3</div>
+                </div>
+                <a href="products.html" class="cta-link">Browse Now</a>
+            </div>
+        </section>
+        
+        
         
         <footer id="footer">
             <a href="https://github.com/" target="_blank">
