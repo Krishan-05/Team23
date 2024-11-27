@@ -1,0 +1,23 @@
+
+body{
+    background-color: #100e39
+}
+.centreform {
+    background-color:white;
+    width: 500px;
+    height: 550px;
+    padding: 10px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 25px;
+}
+.leftform{
+    background-color:white;
+    width: 650px;
+    height: 650px;
+    padding: 10px;
+    margin: 0px auto;
+    text-align: center;
+    border-radius: 25px;
+    float: right;
+}
