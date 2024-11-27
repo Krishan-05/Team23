@@ -31,19 +31,8 @@ nav {
 .navbar a:hover {
     background-color: black; 
 }
-.dropbtn{
-    background-color: #100E39;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-.dropdown{
-    position: relative;
-    display: inline-block;
-    margin: 20px;
-}
+
+
 .dropdown-content{
     display: none;
     position: absolute;
@@ -69,3 +58,16 @@ nav {
     background-color: #100E39;
 }
 
+.dropdown{
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+}
+.dropbtn{
+    background-color: #100E39;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
