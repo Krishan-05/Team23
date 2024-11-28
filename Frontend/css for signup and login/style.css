@@ -1,6 +1,6 @@
 
 body{
-    background-color: #100e39d9
+    background-color: #100e39e0
 }
 h2 {
 font-size: 75px;
@@ -18,7 +18,7 @@ font-family: "Arial", sans-serif;
 .centreform {
     background-color:white;
     width: 500px;
-    height: 700px;
+    height: 680px;
     padding: 10px;
     margin: 20px auto;
     text-align: center;
@@ -28,9 +28,7 @@ font-family: "Arial", sans-serif;
 .leftform{
     background-color:white;
     width: 650px;
-    height: 650px;
-    padding: 10px;
-    margin: 0px auto;
+    height: 645px;
     text-align: center;
     border-radius: 25px;
     float: right;
@@ -68,17 +66,41 @@ input[type=text], select {
   input[type=submit]:hover {
     background-color: #100e39bb;
   }
-  
-  p.username{
+
+  p.username,p.pass,p.email,p.name{
+    text-align: left;
+    margin-left: 40px;
+    font-weight: lighter;
+    font-family: "Arial", sans-serif;
+  }
+
+  p.username1, p.pass1{
     text-align: left;
     margin-left: 50px;
     font-weight: lighter;
     font-family: "Arial", sans-serif;
   }
 
-  p.pass{
-    text-align: left;
-    margin-left: 50px;
-    font-weight: lighter;
-    font-family: "Arial", sans-serif;
+  .image{
+    position: absolute;
+  right: 16px;
+  opacity: 0.2;
+  }
+
+  .img{
+    position: absolute;
+  top: 130px;
+  left: 190px;
+
+  }
+  p.brief{
+    text-align: center;
+    position: absolute;
+  top: 385px;
+  left: 60px;
+  color: rgba(255, 255, 255, 0.842);
+  float: left;
+  font-family: "Arial", sans-serif;
+  font-size: 80%;
+
   }
