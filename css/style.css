@@ -1,14 +1,26 @@
 
 body{
-    background-color: #100e39
+    background-color: #100e39d9
+}
+h2 {
+font-size: 75px;
+color: #100e39d9;
+font-family: "Arial", sans-serif;
+}
+h1{
+    font-size: 50px;
+color: #100e39d9;
+font-family: "Arial", sans-serif;
+
 }
 .centreform {
     background-color:white;
     width: 500px;
-    height: 550px;
+    height: 700px;
     padding: 10px;
     margin: 20px auto;
     text-align: center;
+    font-family: "Space Grotesk", sans-serif;
     border-radius: 25px;
 }
 .leftform{
@@ -21,3 +33,36 @@ body{
     border-radius: 25px;
     float: right;
 }
+
+input[type=text], select {
+    width: 85%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  input[type=password], select {
+    width: 85%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  input[type=submit] {
+    width: 40%;
+    background-color:#100e39d9;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #100e39d9;
+  }
