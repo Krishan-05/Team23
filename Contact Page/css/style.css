@@ -1,6 +1,6 @@
 /* Sets the background colour  */
 body {
-     background-color: #100e39d9
+     background-color: #100e39e0
 }
 
 
@@ -46,4 +46,7 @@ input[type="submit"]
     color: white;
     border-radius: 15px;
     padding:7px;
+}
+.image {
+    opacity : 0.2;
 }
