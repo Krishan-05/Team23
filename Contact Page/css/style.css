@@ -1,0 +1,49 @@
+/* Sets the background colour  */
+body {
+     background-color: #100e39d9
+}
+
+
+h1 { color: #100e39d9;
+    font-size: 40px; }
+    
+    .centerform {
+      background-color: white;
+      width: 500px;
+      height: 570px;
+      padding:10px;
+      margin: 20px auto;
+      text-align: center;
+      border-radius: 25px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 18px;
+    }
+
+input[type="text"]
+{
+    font-size:18px;
+}
+
+input[type="email"]
+{
+    font-size:18px;
+}
+
+input[type="confirm_email"]
+{
+    font-size:18px;
+}
+
+input[type="phone"]
+{
+    font-size:18px;
+}
+  
+input[type="submit"]
+{
+    font-size:18px;
+    background-color: #100e39d9;
+    color: white;
+    border-radius: 15px;
+    padding:7px;
+}

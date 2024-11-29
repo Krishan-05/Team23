@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Contact Page</title> 
+    <link rel = "stylesheet"  type="text/css" href="css/style.css" />
+    <script src = "myscript.js"> </script>
+</head>
+
+<body> 
+    <div class = "centerform" >
+    <h1><b>Contact Us</h1></b>
+    <p><i>Please use the form below to get in touch with us:</p></i>
+    <br>
+        <!--The onsubmit attribute calls the validateForm function in JavaScript-->
+        <!--The action attribute sends the form to the given email address, once submitted.-->
+        <!--The method attribute specifies how to send the form data.--> 
+        <!--The enctype attribute sends the data, without encoding it-->
+    <form onsubmit="return validateForm(this);" action= "mailto:beActive@ ENTER EMAIL ADDRESS TO USE
+    " method="post" enctype="text/plain">
+        <!--The input fields for the form-->
+        <input type ="text" name="Name" placeholder="Name" required/><br>
+        <br><input type="email" name="Email" placeholder="Email" required/><br>
+        <br><input type="confirm_email" name="confirm_email" placeholder="Confirm Email" required/><br>
+        <br><input type="phone" name="Phone Number" placeholder="Phone Number" required/><br>
+            
+        <br>
+        <br>
+        <label> Your Enquiry </br> </br>
+            <textarea name="Enquiry"rows= "4"cols="40"> </textarea>
+        </label>
+        <br>
+
+        <div class = "submit">
+            <br> <input type= "submit" value ="Submit">
+        </div>
+
+        </form>    
+      
+    </div>
+    
+    <img src="beActive Logo.png" alt="Logo" height="75px" style = float:right>
+
+</body>
+ 
