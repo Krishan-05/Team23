@@ -52,7 +52,7 @@ h1 {
 }
 
 /* Navbar in the main header */
-.navigation a {
+/* .navigation a {
   color: whitesmoke;
   text-align: center;
   padding: 14px 16px;
@@ -62,19 +62,61 @@ h1 {
   align-items: center;
   float: left;
   transition: all 0.3s; /* Smoothly tranistions the background colour and moves the box in 0.3s  */
-}
+/* } */
 
 /* Activates when the element in the navBar is hovered on*/
-.navigation a:hover {
+/* .navigation a:hover {
   background-color: whitesmoke; /* Sets text */
-  color: #100e39; /* Sets text colour to white*/
-  transform: translateY(-7px); /* Moves the nav box up 7px*/
-}
+  /* color: #100e39; /* Sets text colour to white*/
+  /* transform: translateY(-7px); Moves the nav box up 7px */ 
+/* } */ 
 
 /* Actual Navbar styles */
-.navigation {
-  padding-right: 40px;
+/* .navigation {
+  padding-right: 40px; */
+/* } */
+
+nav ul{
+  display:flex;
+  background-color: #100e39;
 }
+nav ul li{
+  position: relative;
+  margin-right: 50px;
+  list-style: none;
+  background-color: #100E39;
+
+}
+.dropdown li a{
+  margin: 0;
+  padding: 10px;
+  background-color: #100e39;
+}
+.dropdown{
+  display: none;
+  position: absolute;
+  background-color: #100E39;
+
+}
+
+nav ul li:hover ul.dropdown{
+  display: block;
+  background-color: whitesmoke;
+  color: #100e39;
+}
+nav ul li a{
+  color: white;
+  display:block;
+  text-decoration: none;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 22px;
+  float: left;
+  transition: all 0.3s; /* Smoothly tranistions the background colour and moves the box in 0.3s  */
+  background-color: #100E39;
+
+}
+
 
 /* Styles for the footer of the page */
 #footer {
