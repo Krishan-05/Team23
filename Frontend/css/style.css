@@ -88,21 +88,28 @@ nav ul li{
 
 }
 .dropdown li a{
-  margin: 0;
+  margin-left: 15px;
   padding: 10px;
   background-color: #100e39;
+  width: 100%;
+
 }
 .dropdown{
   display: none;
   position: absolute;
   background-color: #100E39;
+  padding: 0;
+  margin: 0;
 
 }
 
 nav ul li:hover ul.dropdown{
   display: block;
-  background-color: whitesmoke;
   color: #100e39;
+  top: 100%;
+  
+  
+  
 }
 nav ul li a{
   color: white;
