@@ -4,10 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--Scaling is correct for device being used -->
+
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css" /> <!-- Link CSS file -->
-    <title>beActive - Home</title> <!-- Title -->
+    <title>beActive - Clothing</title> <!-- Title -->
+    <style>
+        .products {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            text-align: left;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* Text within the about us */
+        .aboutus p {
+            color: #ff5b00;
+            font-family: "Space Grotesk", sans-serif;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,10 +38,10 @@
                     <li><a id="products">Products</a>
                         <ul class="dropdown">
                             <li><a href="supplements.html">Supplements</a></li>
-                            <li><a href="gym.hmtl">Gym Accessories</a></li>
+                            <li><a href="gym.hmtl">Gym Equipment</a></li>
                             <li><a href="clothing.html">Clothing</a></li>
                             <li><a href="sports.html">Sports Equipment</a></li>
-                            <li><a href="accessories.html">Accessories</a></li>
+                            <li><a href="">Accessories</a></li>
                         </ul>
                     <li><a id="contact" href="">Contact Us</a></li>
                 </ul>
@@ -33,8 +49,8 @@
         </header>
 
 
-        <div class="aboutus">
-            <h1> About us: </h1>
+        <div class="products">
+            <h1> Products </h1>
 
         </div>
 
@@ -83,6 +99,7 @@
                 </div>
             </div>
         </footer>
+
     </main>
 </body>
 
