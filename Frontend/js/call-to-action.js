@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Carousel Functionality
     const items = document.querySelectorAll('.carousel-item');
     const prev = document.querySelector('.prev');
     const next = document.querySelector('.next');
@@ -30,5 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const nextIndex = (current + 1) % items.length;
         updateCarousel(nextIndex, 'next');
         current = nextIndex;
+    });
+
+    // Newsletter Subscription Functionality
+    document.getElementById('newsletter-form').addEventListener('submit', function (event) {
+        // Prevent the form from submitting normally
+        event.preventDefault();
+
+        // Display the success message
+        alert('Subscription has been successful!\nCheck your email for our newsletter!');
+
     });
 });
