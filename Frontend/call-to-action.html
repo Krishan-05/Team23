@@ -5,39 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/call-to-action.css" /> 
+    <script src="js/call-to-action.js"></script>
     <title>Homepage</title>
 </head>
-<script>
-    const items = document.querySelectorAll('.carousel-item');
-    const prev = document.querySelector('.prev');
-    const next = document.querySelector('.next');
-    let current = 0;
-
-    function updateCarousel(index) {
-        items.forEach((item, i) => {
-            item.classList.remove('active');
-            if (i === index) {
-                item.classList.add('active');
-            }
-        });
-    }
-
-    prev.addEventListener('click', () => {
-        current = (current - 1 + items.length) % items.length;
-        updateCarousel(current);
-    });
-
-    next.addEventListener('click', () => {
-        current = (current + 1) % items.length;
-        updateCarousel(current);
-    });
-
-    // Auto-play (optional)
-    setInterval(() => {
-        current = (current + 1) % items.length;
-        updateCarousel(current);
-    }, 5000);
-</script>
 
 <body>
     <main>
@@ -118,5 +88,6 @@
             </a>
         </footer>
     </main>
+
 </body>
 </html>
