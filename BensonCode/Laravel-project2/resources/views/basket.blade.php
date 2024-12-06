@@ -38,6 +38,7 @@
     </main>
 
 
+
     <script>
         // Function to display basket items
         function displayBasket() {
@@ -54,8 +55,8 @@
                 const itemDiv = document.createElement('div');
                 itemDiv.classList.add('basket-item');
                 itemDiv.innerHTML = `
-                    <p>${item.quantity} x ${item.name} - $${item.price}</p>
-                    <p>Subtotal: $${item.price * item.quantity}</p>
+                    <p>${item.quantity} x ${item.name} - £${item.price}</p>
+                    <p>Subtotal: £${item.price * item.quantity}</p>
                 `;
                 basketContainer.appendChild(itemDiv);
 
@@ -64,7 +65,7 @@
             });
 
             // Display total price
-            totalPriceContainer.innerHTML = `<h3>Total: $${totalPrice}</h3>`;
+            totalPriceContainer.innerHTML = `<h3>Total: £${totalPrice}</h3>`;
         }
 
         // Function to clear the basket
