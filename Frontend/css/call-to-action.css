@@ -251,7 +251,6 @@ main {
 
 .carousel-controls button:hover { background: #cc4800; }
 
-/* Product Gallery */
 .products .product-gallery {
     display: flex;
     gap: 10px;
@@ -260,11 +259,19 @@ main {
 }
 
 .product-item {
-    background: #eaeaea;
     width: 100px;
     height: 100px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Ensure images don’t overflow the container */
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0)}
+}
+
+.product-item img {
+    width: 100%; /* Make the image fill the container */
+    height: 100%; /* Maintain the aspect ratio */
+    object-fit: cover; /* Ensure the image scales and crops properly */
+    border-radius: 8px; /* Keep the rounded corners */
+}
