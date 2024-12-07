@@ -9,13 +9,10 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" /> <!-- Link CSS file -->
     <title>beActive - Sports Equipment</title> <!-- Title -->
     <style>
-        .container {
+       .container {
             display: flex;
             flex-direction: column;
-            align-items: left;
-            text-align: left;
             width: 100%;
-            flex: 1;
         }
 
         .grid-container {
@@ -36,14 +33,25 @@
 
 
         #grid-title {
-            grid-column-start: 1;
-            grid-column-end: 5;
+            font-family: 'Space Grotesk', sans-serif; /* Matches the chosen font */
+            font-size: 36px; /* Larger font size for prominence */
+            font-weight: 700; /* Bold for emphasis */
+            color: #007bff; /* Eye-catching blue to match the theme */
+            text-align: center; /* Center the title horizontally */
+            text-transform: uppercase; /* Capitalize all letters for impact */
+            margin: 20px 0; /* Add vertical spacing above and below */
+            letter-spacing: 2px; /* Slight spacing for elegance */
+            background-color: #f8f9fa; /* Subtle background for distinction */
+            padding: 15px; /* Adds space around the title text */
+            border-radius: 12px; /* Smooth rounded corners for a modern look */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
         }
+        
 
         /* todo after mvp */
         #grid-filter {
             grid-row-start: 2;
-            grid-row-end: 8;
+            grid-row-end: 7;
             /* change to 7 */
             border: none;
 
@@ -57,30 +65,117 @@
 
         }
 
-        #grid-search {
-            /* grid-column-start: 4;
-            grid-column-end: 5; */
-        }
 
-        .product {
-            /* background-color: red;
-            border: 1px solid red; */
+/* Product Cards */
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff; /* Clean white background */
+    border: 1px solid #e6e6e6; /* Subtle border to define edges */
+    border-radius: 12px; /* Slightly rounded corners for elegance */
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* Gentle shadow for depth */
+    max-width: 240px; /* Restrict product card width for uniformity */
+    text-align: center;
+    margin: 15px auto; /* Center products and add spacing */
+    overflow: hidden; /* Ensure no content overflows */
+}
 
-        }
+.product:hover {
+    transform: translateY(-8px); /* Slight lift on hover for interactivity */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+    background-color: #f9f9f9; /* Soft gray background on hover */
+}
 
-        /* #item1,
-        #item2,
-        #item3,
-        #item4,
-        #item5,
-        #item6,
-        #item7,
-        #item8,
-        #item9 {
-            /* background-color: blue;
-            border: 1px solid blue; */
-        /* color: red;
-        }  */
+.product img {
+    width: 140px; /* Ideal size for product images */
+    height: auto;
+    margin-bottom: 12px;
+    border-radius: 10px; /* Rounded edges for images */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Smooth zoom effect */
+}
+
+.product:hover img {
+    transform: scale(1.1); /* Slight zoom on hover */
+    filter: brightness(1.1); /* Brighten the image on hover */
+}
+
+.product p {
+    margin: 10px 0 5px;
+    font-size: 17px; /* Perfect size for readability */
+    font-weight: 600; /* Enhance visibility of product names */
+    color: #333333; /* Dark text for strong contrast */
+    text-align: center;
+}
+
+.product-price {
+    font-size: 16px; /* Adjust size for emphasis */
+    font-weight: 500; /* Medium weight for hierarchy */
+    color: #007bff; /* Attractive blue tone for pricing */
+    margin: 5px 0;
+}
+
+.product-button {
+    margin-top: 12px;
+    background-color: #007bff; /* Brand primary color */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px; /* Fully rounded buttons for a modern feel */
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for better visibility */
+}
+
+.product-button:hover {
+    background-color: #0056b3; /* Slightly darker blue on hover */
+    transform: scale(1.05); /* Scale up button slightly on hover */
+}
+
+.product-button:active {
+    background-color: #004085; /* Even darker blue for active state */
+    transform: scale(1); /* Remove scale for pressed state */
+    box-shadow: none; /* Remove shadow for pressed effect */
+}
+/* Search Bar Styling*/
+
+#searchBar {
+    width: 100%; /* Full width for responsiveness */
+    max-width: 400px; /* Restrict maximum width */
+    padding: 12px 20px; /* Spacious padding for comfort */
+    font-size: 16px; /* Readable text size */
+    border: 1px solid #e6e6e6; /* Subtle border matching product cards */
+    border-radius: 25px; /* Fully rounded for modern look */
+    background-color: #ffffff; /* Clean white background */
+    outline: none; /* Remove default focus outline */
+    box-shadow: none; /* Removes any shadow effect */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+#searchBar:focus {
+    border-color: #007bff; /* Highlight border on focus */
+    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2); /* Optional shadow on focus */
+}
+
+#searchBar::placeholder {
+    color: #999999; /* Subtle placeholder color */
+    font-style: italic; /* Different style for placeholder */
+}
+
+.grid-container #grid-search {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin-bottom: 20px; /* Add spacing */
+    background-color: transparent; /* Remove any background color */
+    border: none; /* Remove any border */
+    box-shadow: none; /* Remove any shadow */
+}
+
     </style>
 </head>
 
@@ -113,20 +208,79 @@
                 <div id="grid-sort">Sort By</div>
                 <div id="grid-search"><input type="text" id="searchBar" placeholder="Search for products..."
                         onkeyup="filterProducts()"></div>
-
-                <div class="product" id="item1">Football</div>
-                <div class="product" id="item2">Basketball</div>
-                <div class="product" id="item3">Tennis Racket</div>
-                <div class="product" id="item4">Baseball Bat</div>
-                <div class="product" id="item5">Football Boots</div>
-                <div class="product" id="item6">Golf Clubs</div>
-                <div class="product" id="item7">Volleyball</div>
-                <div class="product" id="item8">Badminton Racket</div>
-                <div class="product" id="item9">Yoga Mat</div>
-                <div class="product" id="item10">Tennis Ball</div>
-                <div class="product" id="item11">Baseball</div>
-                <div class="product" id="item12">Badminton Ball</div>
-
+                        <div class="product" id="item1">
+                            <img src="images/sports equipment/football.jpeg" alt="Football" width="100">
+                            <p>Football</p>
+                            <p class="product-price">$29.99</p>
+                            <button class="product-button">Add to Basket</button>
+                        </div>
+                        <div class="product" id="item2">
+                            <img src="images/sports equipment//basketball.jpeg" alt="Basketball" width="100">
+                            <p>Basketball</p>
+                            <p class="product-price">$29.99</p>
+                            <button class="product-button">Add to Basket</button>
+                        </div>
+                        <div class="product" id="item3">
+                            <img src="images/sports equipment/tennis racket.jpeg" alt="Tennis Racket" width="100">
+                            <p>Tennis Racket</p>
+                            <p class="product-price">$29.99</p>
+                            <button class="product-button">Add to Basket</button>
+                        </div>
+                        <div class="product" id="item4">
+                            <img src="images/sports equipment/baseball bat.jpeg" alt="Baseball Bat" width="100">
+                            <p>Baseball Bat</p>
+                            <p class="product-price">$29.99</p>
+                            <button class="product-button">Add to Basket</button>
+                        </div>
+                        <div class="product" id="item5">
+                            <img src="images/sports equipment/football boots.jpeg" alt="Football Boots" width="100">
+                            <p>Football Boots</p>
+                            <p class="product-price">$29.99</p>
+                            <button class="product-button">Add to Basket</button>
+                        </div>
+                        <div class="product" id="item6">
+                            <img src="images/sports equipment/golf-clubs.jpeg" alt="Golf Clubs" width="100">
+                            <p>Golf Clubs</p>
+                            <p class="product-price">$29.99</p>
+                            <button class="product-button">Add to Basket</button>
+                        </div>
+                        <div class="product" id="item7">
+                            <img src="images/sports equipment/volleyball.jpeg" alt="Volleyball" width="100">
+                            <p>Volleyball</p>
+                            <p class="product-price">$29.99</p>
+                            <button class="product-button">Add to Basket</button>
+                        </div>
+                        <div class="product" id="item8">
+                            <img src="images/sports equipment/badminton racket.jpeg" alt="Badminton Racket" width="100">
+                            <p>Badminton Racket</p>
+                            <p class="product-price">$29.99</p>
+                            <button class="product-button">Add to Basket</button>
+                        </div>
+                        <div class="product" id="item9">
+                            <img src="images/sports equipment/yoga mat.jpeg" alt="Yoga Mat" width="100">
+                            <p>Yoga Mat</p>
+                            <p class="product-price">$29.99</p>
+                            <button class="product-button">Add to Basket</button>
+                        </div>
+                        <div class="product" id="item10">
+                            <img src="images/sports equipment/tennis ball.jpeg" alt="Tennis Ball" width="100">
+                            <p>Tennis Ball</p>
+                            <p class="product-price">$29.99</p>
+                            <button class="product-button">Add to Basket</button>
+                        </div>
+                        <div class="product" id="item11">
+                            <img src="images/sports equipment/baseball.jpeg" alt="Baseball" width="100">
+                            <p>Baseball</p>
+                            <p class="product-price">$29.99</p>
+                            <button class="product-button">Add to Basket</button>
+                        </div>
+                        <div class="product" id="item12">
+                            <img src="images/sports equipment/badminton ball.jpeg" alt="Badminton Ball" width="100">
+                            <p>Badminton Ball</p>
+                            <p class="product-price">$29.99</p>
+                            <button class="product-button">Add to Basket</button>
+                        </div>
+                        
 
             </div>
         </div>

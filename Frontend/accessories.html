@@ -12,6 +12,7 @@
         .container {
             display: flex;
             flex-direction: column;
+            width: 100%;
             align-items: left;
             text-align: left;
             width: 100%;
@@ -36,9 +37,20 @@
 
 
         #grid-title {
-            grid-column-start: 1;
-            grid-column-end: 5;
+            font-family: 'Space Grotesk', sans-serif; /* Matches the chosen font */
+            font-size: 36px; /* Larger font size for prominence */
+            font-weight: 700; /* Bold for emphasis */
+            color: #007bff; /* Eye-catching blue to match the theme */
+            text-align: center; /* Center the title horizontally */
+            text-transform: uppercase; /* Capitalize all letters for impact */
+            margin: 20px 0; /* Add vertical spacing above and below */
+            letter-spacing: 2px; /* Slight spacing for elegance */
+            background-color: #f8f9fa; /* Subtle background for distinction */
+            padding: 15px; /* Adds space around the title text */
+            border-radius: 12px; /* Smooth rounded corners for a modern look */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
         }
+        
 
         /* todo after mvp */
         #grid-filter {
@@ -57,30 +69,118 @@
 
         }
 
-        #grid-search {
-            /* grid-column-start: 4;
-            grid-column-end: 5; */
-        }
 
+/* Product Cards */
         .product {
-            /* background-color: red;
-            border: 1px solid red; */
-
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ffffff; /* Clean white background */
+            border: 1px solid #e6e6e6; /* Subtle border to define edges */
+            border-radius: 12px; /* Slightly rounded corners for elegance */
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* Gentle shadow for depth */
+            max-width: 240px; /* Restrict product card width for uniformity */
+            text-align: center;
+            margin: 15px auto; /* Center products and add spacing */
+            overflow: hidden; /* Ensure no content overflows */
         }
 
-        /* #item1,
-        #item2,
-        #item3,
-        #item4,
-        #item5,
-        #item6,
-        #item7,
-        #item8,
-        #item9 {
-            /* background-color: blue;
-            border: 1px solid blue; */
-        /* color: red;
-        }  */
+        .product:hover {
+            transform: translateY(-8px); /* Slight lift on hover for interactivity */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+            background-color: #f9f9f9; /* Soft gray background on hover */
+        }
+
+        .product img {
+            width: 140px; /* Ideal size for product images */
+            height: auto;
+            margin-bottom: 12px;
+            border-radius: 10px; /* Rounded edges for images */
+            transition: transform 0.3s ease, filter 0.3s ease; /* Smooth zoom effect */
+        }
+
+        .product:hover img {
+            transform: scale(1.1); /* Slight zoom on hover */
+            filter: brightness(1.1); /* Brighten the image on hover */
+        }
+
+        .product p {
+            margin: 10px 0 5px;
+            font-size: 17px; /* Perfect size for readability */
+            font-weight: 600; /* Enhance visibility of product names */
+            color: #333333; /* Dark text for strong contrast */
+            text-align: center;
+        }
+
+.product-price {
+    font-size: 16px; /* Adjust size for emphasis */
+    font-weight: 500; /* Medium weight for hierarchy */
+    color: #007bff; /* Attractive blue tone for pricing */
+    margin: 5px 0;
+}
+
+.product-button {
+    margin-top: 12px;
+    background-color: #007bff; /* Brand primary color */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px; /* Fully rounded buttons for a modern feel */
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for better visibility */
+}
+
+.product-button:hover {
+    background-color: #0056b3; /* Slightly darker blue on hover */
+    transform: scale(1.05); /* Scale up button slightly on hover */
+}
+
+.product-button:active {
+    background-color: #004085; /* Even darker blue for active state */
+    transform: scale(1); /* Remove scale for pressed state */
+    box-shadow: none; /* Remove shadow for pressed effect */
+}
+/* Search Bar Styling*/
+
+#searchBar {
+    width: 100%; /* Full width for responsiveness */
+    max-width: 400px; /* Restrict maximum width */
+    padding: 12px 20px; /* Spacious padding for comfort */
+    font-size: 16px; /* Readable text size */
+    border: 1px solid #e6e6e6; /* Subtle border matching product cards */
+    border-radius: 25px; /* Fully rounded for modern look */
+    background-color: #ffffff; /* Clean white background */
+    outline: none; /* Remove default focus outline */
+    box-shadow: none; /* Removes any shadow effect */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+#searchBar:focus {
+    border-color: #007bff; /* Highlight border on focus */
+    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2); /* Optional shadow on focus */
+}
+
+#searchBar::placeholder {
+    color: #999999; /* Subtle placeholder color */
+    font-style: italic; /* Different style for placeholder */
+}
+
+.grid-container #grid-search {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin-bottom: 20px; /* Add spacing */
+    background-color: transparent; /* Remove any background color */
+    border: none; /* Remove any border */
+    box-shadow: none; /* Remove any shadow */
+}
+
+
     </style>
 </head>
 
@@ -114,19 +214,68 @@
                 <div id="grid-search"><input type="text" id="searchBar" placeholder="Search for products..."
                         onkeyup="filterProducts()"></div>
 
-                <div class="product" id="item1">Gym Bag</div>
-                <div class="product" id="item2">Water Bottle</div>
-                <div class="product" id="item3">Towel</div>
-                <div class="product" id="item4">Gym Gloves</div>
-                <div class="product" id="item5">Headphones</div>
-                <div class="product" id="item6">Fitness Tracker</div>
-                <div class="product" id="item7">Foam Roller</div>
-                <div class="product" id="item8">Jump Rope</div>
-                <div class="product" id="item9">Sport Watch</div>
-                <div class="product" id="item10">Resistance Bands</div>
+                <div class="product" id="item1">
+                    <img src="images/accessories/gym bag.jpeg" alt="Gym Bag" width="100">
+                    <p>Gym Bag</p>
+                    <p class="product-price">$29.99</p>
+                    <button class="product-button">Add to Basket</button>
+                </div>
 
-
-
+                <div class="product" id="item2">  
+                    <img src="images/accessories/water bottle.jpeg" alt="Water Bottle" width="100">
+                    <p>Water Bottle</p>
+                    <p class="product-price">$29.99</p>
+                    <button class="product-button">Add to Basket</button>
+                </div>
+                <div class="product" id="item3">
+                    <img src="images/accessories/towel.jpeg" alt="Towel" width="100">
+                    <p>Towel</p>
+                    <p class="product-price">$29.99</p>
+                    <button class="product-button">Add to Basket</button>
+                </div>
+                <div class="product" id="item4">
+                    <img src="images/accessories/gym gloves.jpeg" alt="Gym Gloves" width="100">
+                    <p>Gym Gloves</p>
+                    <p class="product-price">$29.99</p>
+                    <button class="product-button">Add to Basket</button>
+                </div>
+                <div class="product" id="item5">
+                    <img src="images/accessories/headphones.jpeg" alt="Headphones" width="100">
+                    <p>Headphones</p>
+                    <p class="product-price">$29.99</p>
+                    <button class="product-button">Add to Basket</button>
+                </div>
+                <div class="product" id="item6">
+                    <img src="images/accessories/fitness tracker.jpeg" alt="Fitness Tracker" width="100">
+                    <p>Fitness Tracker</p>
+                    <p class="product-price">$29.99</p>
+                    <button class="product-button">Add to Basket</button>
+                </div>
+                <div class="product" id="item7">
+                    <img src="images/accessories/foam roller.jpeg " alt="Foam Roller" width="100">
+                    <p>Foam Roller</p>
+                    <p class="product-price">$29.99</p>
+                    <button class="product-button">Add to Basket</button>
+                </div>
+                <div class="product" id="item8">
+                    <img src="images/accessories/jump rope.jpeg " alt="Jump Rope" width="100">
+                    <p>Jump Rope</p>
+                    <p class="product-price">$29.99</p>
+                    <button class="product-button">Add to Basket</button>
+                </div>
+                <div class="product" id="item9">
+                    <img src="images/accessories/sport watch.jpeg" alt="Sport watch" width="100">
+                    <p>Sport Watch</p>
+                    <p class="product-price">$29.99</p>
+                    <button class="product-button">Add to Basket</button>
+                </div>
+                                    
+                <div class="product" id="item10">
+                    <img src="images/accessories/resistance bands.jpeg" alt="Resistance Bands" width="100">
+                    <p>Resistance Bands</p>
+                    <p class="product-price">$29.99</p>
+                    <button class="product-button">Add to Basket</button>
+                </div>
             </div>
         </div>
 
