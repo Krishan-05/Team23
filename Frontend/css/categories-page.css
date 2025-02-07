@@ -1,0 +1,81 @@
+/* Global Reset and Layout */
+html, body {
+    height: 100%; 
+    width: 100%; 
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: #f4f4f4;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+}
+
+/* Header */
+#main-header {
+    background: #100E39;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 93.6%;
+    height: 110px;
+    padding: 0 40px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.navigation a {
+    color: whitesmoke;
+    padding: 14px 16px;
+    font-size: 22px;
+    transition: all 0.3s;
+    animation: slideInFromTop 1s ease-in-out;
+}
+
+.navigation a:hover {
+    background-color: whitesmoke; 
+    color: #100E39;  
+    transform: translateY(-7px); 
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+h1 {
+    margin-bottom: 20px;
+}
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+.category {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.category:hover {
+    transform: scale(1.05);
+}
+.category img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.category h2 {
+    padding: 10px;
+    margin: 0;
+    font-size: 18px;
+    background: #007bff;
+    color: #fff;
+}
+.category a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
