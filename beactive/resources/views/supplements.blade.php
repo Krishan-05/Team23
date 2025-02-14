@@ -43,7 +43,7 @@
             text-transform: uppercase; /* Capitalize all letters for impact */
             margin: 20px 0; /* Add vertical spacing above and below */
             letter-spacing: 2px; /* Slight spacing for elegance */
-            background-color: #f8f9fa; /* Subtle background for distinction */
+            background-color: #ffffff; /* Subtle background for distinction */
             padding: 15px; /* Adds space around the title text */
             border-radius: 12px; /* Smooth rounded  */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
@@ -55,8 +55,47 @@
             grid-row-start: 2;
             grid-row-end: 7;
             /* change to 7 */
-            border: none;
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        #grid-filter h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
 
+        }
+
+        #grid-filter label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        #grid-filter select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+
+        #apply-filter {
+            margin-top: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #apply-filter:hover {
+            background-color: #0056b3;
         }
 
         /* todo after mvp */
@@ -206,7 +245,39 @@
             <div class="grid-container">
                 <!-- Title -->
                 <div id="grid-title">Supplements</div>
-                <div id="grid-filter"></div>
+                <div id="grid-filter">
+                    <h3>Filter Products</h3>
+
+                    <label for="category">Category:</label>
+                        <select id="category">
+                            <option value="all">All</option>
+                            <option value="accessories">Accessories</option>
+                            <option value="clothing">Clothing</option>
+                            <option value="gym">Gym Equipment</option>
+                            <option value="sports">Sports Equipment</option>
+                            <option value="supplements">Supplements</option>
+                        </select><br>
+
+                    <label for="price">Price Range:</label>
+                        <select id="price">
+                            <option value="all">All</option>
+                            <option value="low">Under £50</option>
+                            <option value="medium">£50 - £100</option>
+                            <option value="high">Over £100</option>
+                        </select><br>
+
+                    <label for="rating">Rating:</label>
+                        <select id="rating">
+                            <option value="all">All</option>
+                            <option value="4">4★ & Up</option>
+                            <option value="3">3★ & Up</option>
+                            <option value="2">2★ & Up</option>
+                            <option value="1">1★ & Up</option>
+                        </select><br>
+
+                    <button id="apply-filter">Apply Filters</button>
+
+                </div>
                 <div id="grid-sort"></div>
                 <!-- Search Bar -->
                 <div id="grid-search">
