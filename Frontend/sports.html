@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css" /> <!-- Link CSS file -->
+    <title>beActive - Sports Equipment</title> <!-- Title -->
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            text-align: left;
+            width: 100%;
+            flex: 1;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            grid-template-rows: auto auto auto auto;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .grid-container div {
+            background-color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 20px;
+            border: 1px solid black;
+        }
+
+
+        #grid-title {
+            grid-column-start: 1;
+            grid-column-end: 5;
+        }
+
+        /* todo after mvp */
+        #grid-filter {
+            grid-row-start: 2;
+            grid-row-end: 8;
+            /* change to 7 */
+            border: none;
+
+        }
+
+        /* todo after mvp */
+        #grid-sort {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            border: none;
+
+        }
+
+        #grid-search {
+            /* grid-column-start: 4;
+            grid-column-end: 5; */
+        }
+
+        .product {
+            /* background-color: red;
+            border: 1px solid red; */
+
+        }
+
+        /* #item1,
+        #item2,
+        #item3,
+        #item4,
+        #item5,
+        #item6,
+        #item7,
+        #item8,
+        #item9 {
+            /* background-color: blue;
+            border: 1px solid blue; */
+        /* color: red;
+        }  */
+    </style>
+</head>
+
+<body>
+    <main>
+        <header id="main-header">
+            <h1> <img src="images/Team23 Logo No background.png" alt="Brand logo" width="80" height="80"> <br> </h1>
+            <!-- Brand name within the header -->
+            <nav class="navbar"> <!-- Navbar in the header -->
+                <ul>
+                    <li><a id="home" href="index.html">Home</a></li>
+                    <li><a id="basket" href="">Basket</a></li>
+                    <li><a id="products">Products</a>
+                        <ul class="dropdown">
+                            <li><a href="supplements.html">Supplements</a></li>
+                            <li><a href="gym.html">Gym Equipment</a></li>
+                            <li><a href="clothing.html">Clothing</a></li>
+                            <li><a href="sports.html">Sports Equipment</a></li>
+                            <li><a href="accessories.html">Accessories</a></li>
+                        </ul>
+                    <li><a id="contact" href="">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="container">
+            <div class="grid-container">
+                <div id="grid-title">Sports Equipment</div>
+                <div id="grid-filter">Filter</div>
+                <div id="grid-sort">Sort By</div>
+                <div id="grid-search"><input type="text" id="searchBar" placeholder="Search for products..."
+                        onkeyup="filterProducts()"></div>
+
+                <div class="product" id="item1">Football</div>
+                <div class="product" id="item2">Basketball</div>
+                <div class="product" id="item3">Tennis Racket</div>
+                <div class="product" id="item4">Baseball Bat</div>
+                <div class="product" id="item5">Football Boots</div>
+                <div class="product" id="item6">Golf Clubs</div>
+                <div class="product" id="item7">Volleyball</div>
+                <div class="product" id="item8">Badminton Racket</div>
+                <div class="product" id="item9">Yoga Mat</div>
+                <div class="product" id="item10">Tennis Ball</div>
+                <div class="product" id="item11">Baseball</div>
+                <div class="product" id="item12">Badminton Ball</div>
+
+
+            </div>
+        </div>
+
+        <footer id="footer">
+            <div class="footer-container">
+                <div class="footertext">
+                    <p>Our Social Networks</p>
+                </div>
+                <div class="socialimages">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="images/facebook logo small.png"
+                            alt="facebook logo"></a>
+                    <a href="https://www.instagram.com/" target="_blank"><img src="images/instagram logo small.png"
+                            alt="instagram logo"></a>
+                    <a href="https://uk.pinterest.com/" target="_blank"><img src="images/pintrest logo small.png"
+                            alt="pintrest logo"></a>
+                    <a href="https://x.com/home" target="_blank"><img src="images/x logo small.png" alt="x logo"></a>
+                </div>
+                <div class="footerlinks">
+                    <div class=footerlinkhelp>
+                        <h2>Help</h2>
+                        <p> FAQ </p>
+                        <p> Contact us </p>
+
+                    </div>
+                    <div class=footerlinkaccount>
+                        <h2>Account Management</h2>
+                        <p> Login / Logout </p>
+                        <p> View Previous Orders</p>
+
+                    </div>
+                    <div class=footerlinkabpoutus>
+                        <h2>About us</h2>
+                        <p> Terms & Conditions</p>
+                        <p> Our Ethos</p>
+
+                    </div>
+                    <div class=footerlinkrecent>
+                        <h2>Recently Viewed</h2>
+                        <p>
+
+                        </p>
+                    </div>
+                </div>
+                <div class=beactivefooter>
+                    <p>beActive - 2024</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+    <script>
+        function filterProducts() {
+            var searchInput = document.getElementById("searchBar").value.toLowerCase();
+            var products = document.getElementsByClassName("product");
+
+            for (let i = 0; i < products.length; i++) {
+                const productName = products[i].textContent.toLowerCase();
+                if (productName.includes(searchInput)) {
+                    products[i].style.display = "block";
+                } else {
+                    products[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
