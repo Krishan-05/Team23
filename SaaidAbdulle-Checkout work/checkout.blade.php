@@ -108,9 +108,9 @@
                 <h2>Your cart</h2>
                 <div class="cart-item">
                 </div>
-                <div class="cart-item">
+                <div class="Cart-item">
                </div>
-               <div class="summary">
+               <div class="Summary">
                <script>
                     function displayBasket() {
                         const basketItems = JSON.parse(localStorage.getItem('basket')) || [];
