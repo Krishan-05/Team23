@@ -72,6 +72,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: left;
+            margin-right: 50px;
         }
 
         #grid-filter h3 {
@@ -115,9 +116,13 @@
         #grid-sort {
             grid-column-start: 2;
             grid-column-end: 4;
-            border: none;
-
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
         }
+
 
         /* Product Cards */
         .product {
