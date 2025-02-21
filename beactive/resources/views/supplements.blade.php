@@ -114,14 +114,43 @@
 
         /* todo after mvp */
         #grid-sort {
+            width: 100%;
+            max-width: 400px;
             grid-column-start: 2;
             grid-column-end: 4;
-            background: #ffffff;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 12px 20px;
+            /* Spacious padding for comfort */
+            border: 1px solid #e6e6e6;
+            /* Subtle border matching product cards */
+            border-radius: 25px;
+            /* Fully rounded */
+            background-color: #ffffff;
+            /* Clean white background */
+            outline: none;
+            /* Remove default focus outline */
+            box-shadow: none;
+            /* Removes any shadow effect */
+            transition: border-color 0.3s ease;
+            /* Smooth transition for border color */
             text-align: left;
+            font-size: 16px;
+            /* Readable text size */
         }
+
+        /* #searchBar:focus {
+            border-color: #007bff;
+            /* Highlight border on focus */
+        /* box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2); */
+        /* Optional shadow on focus */
+        /* } */
+
+        /* #searchBar::placeholder {
+            color: #999999;
+            /* Subtle placeholder color */
+        /* font-style: italic; */
+        /* Different style for placeholder */
+        /* } */
+
 
 
         /* Product Cards */
