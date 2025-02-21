@@ -19,7 +19,7 @@ main {
     width: 100%;
 }
 
-h1, h2{
+h1{
     padding-left: 20px;
 }
 
@@ -43,7 +43,7 @@ h1, h2{
 
 /* Main header Styles */
 #main-header{
-    background: #100E39; /* Sets background of header to blue */   
+    background: #100E39; /* Sets background of header to black */   
     display: flex;
     flex-wrap: wrap;
     width: 100%; 
@@ -67,8 +67,8 @@ h1, h2{
 
 /* Activates when the element in the navBar is hovered on*/
 .navigation a:hover {
-    background-color: whitesmoke; 
-    color: #100E39;  
+    background-color: whitesmoke; /* Sets text */
+    color: #100E39;  /* Sets text colour to white*/
     transform: translateY(-7px); /* Moves the nav box up 7px*/
 }
 
@@ -80,20 +80,77 @@ h1, h2{
 
 /* Styles for the footer of the page */
 #footer {
-    background: #100E39; /* Sets bacground-colour of the footer to blue */
+    background: #6C6C84; /* Sets bacground-colour of the footer to black */
     display: flex;
     width: 100%;
-    height: 110px;
+    height: 250px;
     justify-content: center;
     align-items: center;              
 }
 
-/* Affects the images within the footer*/
-#footer img{
-    padding: 10px;
+.footer-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    height: 100%;
+    width:100%;
 }
 
-#footer p a{
-    padding: 10px;
-    color: whitesmoke;
+/* Affects the images within the footer*/
+#footer img{
+    padding: 8px;
+
+}
+
+.footertext, .socialimages{
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: center;
+    align-items: top;
+    height: auto;
+    color: #E0EAF2;
+    margin: 0;
+    width:100%
+}
+
+.footertext p, h2{
+    margin: 0;
+    padding-top: 15px;
+
+}
+
+h2{
+    text-decoration: underline;
+}
+
+.socialimages{
+    border-bottom: 1px solid #D4D4D4;
+}
+
+.footerlinks{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;  
+    height: 100%;
+    width:100%;
+    text-align: left;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.footerlinks p{
+    margin: 0;
+    padding-top: 3px;
+    padding-left: 5px;
+    
+}
+
+.footerlinks p:hover {
+    color: #100E39;  
+    font-weight: bold ;
+}
+
+.beactivefooter{    
+    display: flex;
+    height: 50px;   
+    align-items: center;
 }
