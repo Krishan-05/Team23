@@ -14,10 +14,6 @@
             display: flex;
             flex-direction: column;
             width: 100%;
-            align-items: left;
-            text-align: left;
-            width: 100%;
-            flex: 1;
         }
 
         .grid-container {
@@ -53,13 +49,13 @@
             margin: 20px 0;
             /* Add vertical spacing above and below */
             letter-spacing: 2px;
-            /* Slight spacing */
-            background-color: #f8f9fa;
+            /* Slight spacing for elegance */
+            background-color: #ffffff;
             /* Subtle background for distinction */
             padding: 15px;
             /* Adds space around the title text */
             border-radius: 12px;
-            /* Smooth rounded corners for a modern look */
+            /* Smooth rounded  */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             /* Subtle shadow for depth */
         }
@@ -76,7 +72,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: left;
             margin-right: 50px;
-
         }
 
         #grid-filter h3 {
@@ -116,12 +111,100 @@
             background-color: #0056b3;
         }
 
-        /* Todo after mvp */
+        /* todo after mvp */
         #grid-sort {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
             grid-column-start: 2;
             grid-column-end: 4;
+            /* Spacious padding for comfort */
+
+            background-color: #ffffff;
+            /* Clean white background */
             border: none;
 
+            margin-bottom: 20px;
+            padding: 20px;
+
+        }
+
+        #sort-bar {
+            width: 100%;
+            /* Full width for responsiveness */
+            max-width: 400px;
+            /* Restrict maximum width */
+            padding: 12px 20px;
+            /* Spacious padding for comfort */
+            font-size: 16px;
+            /* Readable text size */
+            border: 1px solid #e6e6e6;
+            /* Subtle border matching product cards */
+            border-radius: 25px;
+            /* Fully rounded */
+            background-color: #ffffff;
+            /* Clean white background */
+            outline: none;
+            /* Remove default focus outline */
+            box-shadow: none;
+            /* Removes any shadow effect */
+            transition: border-color 0.3s ease;
+            /* Smooth transition for border color */
+        }
+
+
+        #grid-search {
+            display: flex;
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            margin-bottom: 20px;
+            /* Add spacing */
+            background-color: transparent;
+            /* Remove any background color */
+            border: none;
+            /* Remove any border */
+            box-shadow: none;
+            /* Remove any shadow */
+        }
+
+        #searchBar {
+            width: 100%;
+            /* Full width for responsiveness */
+            max-width: 400px;
+            /* Restrict maximum width */
+            padding: 12px 20px;
+            /* Spacious padding for comfort */
+            font-size: 16px;
+            /* Readable text size */
+            border: 1px solid #e6e6e6;
+            /* Subtle border matching product cards */
+            border-radius: 25px;
+            /* Fully rounded */
+            background-color: #ffffff;
+            /* Clean white background */
+            outline: none;
+            /* Remove default focus outline */
+            box-shadow: none;
+            /* Removes any shadow effect */
+            transition: border-color 0.3s ease;
+            /* Smooth transition for border color */
+        }
+
+        #searchBar:focus {
+            border-color: #007bff;
+            /* Highlight border on focus */
+            box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2);
+            /* Optional shadow on focus */
+        }
+
+        #searchBar::placeholder {
+            color: #999999;
+            /* Subtle placeholder color */
+            font-style: italic;
+            /* Different style for placeholder */
         }
 
 
@@ -135,12 +218,13 @@
             border: 1px solid #e6e6e6;
             /* Subtle border to define edges */
             border-radius: 12px;
-            /* Slightly rounded corners*/
+            /* Slightly rounded */
             padding: 20px;
             transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
             /* Gentle shadow for depth */
             max-width: 240px;
+            /* Restrict product card width for uniformity */
             text-align: center;
             margin: 15px auto;
             /* Center products and add spacing */
@@ -150,7 +234,7 @@
 
         .product:hover {
             transform: translateY(-8px);
-            /* Slight lift on hover */
+            /* Slight lift on hover for interactivity */
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
             /* More prominent shadow on hover */
             background-color: #f9f9f9;
@@ -223,7 +307,7 @@
         }
 
         .product-button:active,
-        . .add-to-basket:active {
+        .add-to-basket:active {
             background-color: #004085;
             /* Even darker blue for active state */
             transform: scale(1);
@@ -233,59 +317,6 @@
         }
 
         /* Search Bar Styling*/
-
-        #searchBar {
-            width: 100%;
-            /* Full width for responsiveness */
-            max-width: 400px;
-            /* Restrict maximum width */
-            padding: 12px 20px;
-            /* Spacious padding */
-            font-size: 16px;
-            /* Readable text size */
-            border: 1px solid #e6e6e6;
-            /* Subtle border matching product cards */
-            border-radius: 25px;
-            /* Fully rounded  */
-            background-color: #ffffff;
-            /* Clean white background */
-            outline: none;
-            /* Remove default focus outline */
-            box-shadow: none;
-            /* Removes any shadow effect */
-            transition: border-color 0.3s ease;
-            /* Smooth transition for border color */
-        }
-
-        #searchBar:focus {
-            border-color: #007bff;
-            /* Highlight border on focus */
-            box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2);
-            /* Optional shadow on focus */
-        }
-
-        #searchBar::placeholder {
-            color: #999999;
-            /* Subtle placeholder color */
-            font-style: italic;
-            /* Different style for placeholder */
-        }
-
-        .grid-container #grid-search {
-            display: flex;
-            justify-content: center;
-            /* Center horizontally */
-            align-items: center;
-            /* Center vertically */
-            margin-bottom: 20px;
-            /* Add spacing */
-            background-color: transparent;
-            /* Remove any background color */
-            border: none;
-            /* Remove any border */
-            box-shadow: none;
-            /* Remove any shadow */
-        }
     </style>
 </head>
 
@@ -334,8 +365,22 @@
 
                     <button id="apply-filter">Apply Filters</button>
                 </div>
-                <div id="grid-sort"></div>
-                <!-- Search Bar -->
+                <div id="grid-sort">
+
+                    <div id="sort-bar">
+                        <label for="sort">Sort By:</label>
+                        <select name="sort" id="sort">
+                            <option value="default">Default</option>
+                            <option value="price-low-high">Price: Low to High</option>
+                            <option value="price-high-low">Price: High to Low</option>
+                            <option value="rating-high-low">Rating: High to Low</option>
+                            <option value="rating-low-high">Rating: Low to High</option>
+                        </select>
+                    </div>
+
+
+
+                </div> <!-- Search Bar -->
                 <div id="grid-search">
                     <input type="text" id="searchBar" placeholder="Search for products..." onkeyup="filterProducts()">
                 </div>
