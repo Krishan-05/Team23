@@ -114,12 +114,32 @@
 
         /* todo after mvp */
         #grid-sort {
-            width: 100%;
-            max-width: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
             grid-column-start: 2;
             grid-column-end: 4;
+            /* Spacious padding for comfort */
+
+            background-color: #ffffff;
+            /* Clean white background */
+            border: none;
+
+            margin-bottom: 20px;
+            padding: 20px;
+
+        }
+
+        #sort-bar {
+            width: 100%;
+            /* Full width for responsiveness */
+            max-width: 400px;
+            /* Restrict maximum width */
             padding: 12px 20px;
             /* Spacious padding for comfort */
+            font-size: 16px;
+            /* Readable text size */
             border: 1px solid #e6e6e6;
             /* Subtle border matching product cards */
             border-radius: 25px;
@@ -132,25 +152,61 @@
             /* Removes any shadow effect */
             transition: border-color 0.3s ease;
             /* Smooth transition for border color */
-            text-align: left;
-            font-size: 16px;
-            /* Readable text size */
         }
 
-        /* #searchBar:focus {
+
+        #grid-search {
+            display: flex;
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            margin-bottom: 20px;
+            /* Add spacing */
+            background-color: transparent;
+            /* Remove any background color */
+            border: none;
+            /* Remove any border */
+            box-shadow: none;
+            /* Remove any shadow */
+        }
+
+        #searchBar {
+            width: 100%;
+            /* Full width for responsiveness */
+            max-width: 400px;
+            /* Restrict maximum width */
+            padding: 12px 20px;
+            /* Spacious padding for comfort */
+            font-size: 16px;
+            /* Readable text size */
+            border: 1px solid #e6e6e6;
+            /* Subtle border matching product cards */
+            border-radius: 25px;
+            /* Fully rounded */
+            background-color: #ffffff;
+            /* Clean white background */
+            outline: none;
+            /* Remove default focus outline */
+            box-shadow: none;
+            /* Removes any shadow effect */
+            transition: border-color 0.3s ease;
+            /* Smooth transition for border color */
+        }
+
+        #searchBar:focus {
             border-color: #007bff;
             /* Highlight border on focus */
-        /* box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2); */
-        /* Optional shadow on focus */
-        /* } */
+            box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2);
+            /* Optional shadow on focus */
+        }
 
-        /* #searchBar::placeholder {
+        #searchBar::placeholder {
             color: #999999;
             /* Subtle placeholder color */
-        /* font-style: italic; */
-        /* Different style for placeholder */
-        /* } */
-
+            font-style: italic;
+            /* Different style for placeholder */
+        }
 
 
         /* Product Cards */
@@ -262,59 +318,6 @@
         }
 
         /* Search Bar Styling*/
-
-        #searchBar {
-            width: 100%;
-            /* Full width for responsiveness */
-            max-width: 400px;
-            /* Restrict maximum width */
-            padding: 12px 20px;
-            /* Spacious padding for comfort */
-            font-size: 16px;
-            /* Readable text size */
-            border: 1px solid #e6e6e6;
-            /* Subtle border matching product cards */
-            border-radius: 25px;
-            /* Fully rounded */
-            background-color: #ffffff;
-            /* Clean white background */
-            outline: none;
-            /* Remove default focus outline */
-            box-shadow: none;
-            /* Removes any shadow effect */
-            transition: border-color 0.3s ease;
-            /* Smooth transition for border color */
-        }
-
-        #searchBar:focus {
-            border-color: #007bff;
-            /* Highlight border on focus */
-            box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2);
-            /* Optional shadow on focus */
-        }
-
-        #searchBar::placeholder {
-            color: #999999;
-            /* Subtle placeholder color */
-            font-style: italic;
-            /* Different style for placeholder */
-        }
-
-        .grid-container #grid-search {
-            display: flex;
-            justify-content: center;
-            /* Center horizontally */
-            align-items: center;
-            /* Center vertically */
-            margin-bottom: 20px;
-            /* Add spacing */
-            background-color: transparent;
-            /* Remove any background color */
-            border: none;
-            /* Remove any border */
-            box-shadow: none;
-            /* Remove any shadow */
-        }
     </style>
 </head>
 
@@ -364,7 +367,22 @@
 
                     <button id="apply-filter">Apply Filters</button>
                 </div>
-                <div id="grid-sort"></div>
+                <div id="grid-sort">
+
+                    <div id="sort-bar">
+                        <label for="sort">Sort By:</label>
+                        <select name="sort" id="sort">
+                            <option value="default">Default</option>
+                            <option value="price-low-high">Price: Low to High</option>
+                            <option value="price-high-low">Price: High to Low</option>
+                            <option value="rating-high-low">Rating: High to Low</option>
+                            <option value="rating-low-high">Rating: Low to High</option>
+                        </select>
+                    </div>
+
+
+
+                </div>
                 <!-- Search Bar -->
                 <div id="grid-search">
                     <input type="text" id="searchBar" placeholder="Search for products..." onkeyup="searchProducts()">
