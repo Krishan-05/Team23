@@ -1,0 +1,207 @@
+
+body,html{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+* {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
+.dropdown-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 22px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.navbar {
+    height: 10%;
+    background-color: #100E39;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 20px;
+    display: flex;
+    width: 100%;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.navbar-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: whitesmoke ;
+    padding: 5px 10px;
+}
+
+.navbar-links a.active {
+    font-weight: bold;
+}
+
+.user-menu {
+    position: relative;
+}
+
+.user-button {
+    color: whitesmoke ;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.user-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px black;
+    padding: 10px;
+}
+
+.user-menu:hover .user-dropdown {
+    display: block;
+}
+
+.user-dropdown a, .user-dropdown button {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #333;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+
+.user-dropdown a:hover, .user-dropdown button:hover {
+    background: #f0f0f1;
+}   
+
+.dashboard-page{
+    background: #6C6C84;
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.dashboard-box{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+
+    width: 90%;
+    height: 90%;
+    box-sizing: border-box;
+    border-radius: 10px ;
+
+    padding: 9px;
+
+
+
+}
+
+.dashboard-heading{
+    font-size: 50px;
+    font-weight: lighter;
+    color: #100e39d9;
+    font-family: "Space Grotesk", sans-serif;
+    margin: 0px;
+    text-align: center;
+
+    padding-bottom: 20px;
+
+}
+
+.dashboard-buttons{
+    display: flex;
+    justify-content: center;
+
+}
+
+.profile-edit{
+    display: flex;
+    width: 10%;
+    height: 80%;
+    background-color:#100e39d9;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-self: center;
+    color: white;
+    padding: 14px 20px;
+    margin: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    box-shadow: none;
+}
+
+.editpage-container{
+    background: #9999b1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    overflow: hidden;
+    padding-left: 20px;
+}
+
+.profile-update, .profile-password {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+    width: 50%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    box-sizing: border-box;
+    border-radius: 10px ;
+
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+
+}

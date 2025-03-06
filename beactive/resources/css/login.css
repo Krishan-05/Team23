@@ -1,0 +1,166 @@
+* {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #6C6C84;
+    display: flex; 
+}
+
+.container {
+    display: flex; 
+    width: 100%;
+    height: 100%;
+}
+
+h2 {
+    font-size: 100px;
+    font-weight: lighter;
+    color: #100e39d9;
+    font-family: "Space Grotesk", sans-serif;
+    padding-bottom: 35px;
+}
+
+.image-container {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #6C6C84;
+}
+
+.login-container {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white; 
+    border-radius: 10px;
+}
+
+input[type=password], select , input[type=email], select , input[type=text], select{
+    display: flex;
+    padding: 6px 10px;
+    margin: 12px 0;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+.email-container, .password-container,.register-name,.register-email,.register-password,.register-password-confirm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input[type=submit]:hover {
+    background-color: #100e39bb;
+}
+
+.inputbox{
+    width: 300px; 
+    height: 40px; 
+}
+
+.login-email,.login-password{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Space Grotesk", sans-serif;
+
+}
+
+.login-button, .alreadyregistered-button {
+    display: flex;
+    width: 50%;
+    background-color:#100e39d9;
+    justify-content: center;
+    align-self: center;
+    color: white;
+    padding: 14px 20px;
+    margin: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    box-shadow: none;
+}
+
+.register-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#100e39d9;
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    margin: 20px;
+    border-radius: 12px;
+    width: 50%;
+    text-decoration: none;
+}
+
+.login-button-container, .register-button-container{
+    display: flex;
+    justify-content: center;
+}
+
+#name,#email,#password,#password_confirmation{
+    text-align: center;
+    font-weight: lighter;
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 15px;
+}
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    background-color: #6C6C84;
+    border-radius: 10px;
+}
+
+.centreform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:white;
+    width: auto;
+    height: auto;
+    padding: 100px;
+    text-align: center;
+    font-family: "Space Grotesk", sans-serif;
+    border-radius: 25px;
+}
+
+h1{
+    font-size: 50px;
+    font-weight: lighter;
+    color: #100e39d9;
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 20px;
+}
+
+.error-messages{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: red;
+}

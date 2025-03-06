@@ -1,0 +1,32 @@
+
+
+.table-heading, th,td{
+    text-align: left;
+    border: 2px solid lightskyblue 
+}
+
+.table-body{
+    border: 2px lightskyblue;
+}
+
+
+.table-wrapper {
+    max-height: 900px; /* You can adjust this based on how much space you want */
+    width: 100%;
+    overflow-y: auto;  /* Allows vertical scrolling */
+    border: 1px solid #ddd;  /* Optional: Adds a border to the wrapper */
+}
+
+
+.table-class {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-row:hover {
+    background-color: green;  /* Apply hover effect to rows */
+}
+
+.table-body ,.table-row:hover {
+    transition: background-color 0.3s ease; 
+}
