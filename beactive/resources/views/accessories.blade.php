@@ -344,7 +344,7 @@
         <div class="container">
             <div class="grid-container">
                 <!-- Title -->
-                <div id="grid-title">Gym Equipment</div>
+                <div id="grid-title">Accessories</div>
                 <div id="grid-filter">
                     <h3>Filter Products</h3>
 
@@ -382,7 +382,7 @@
 
                 </div> <!-- Search Bar -->
                 <div id="grid-search">
-                    <input type="text" id="searchBar" placeholder="Search for products..." onkeyup="filterProducts()">
+                    <input type="text" id="searchBar" placeholder="Search for products..." onkeyup="searchProducts()">
                 </div>
 
                 <!-- Dynamically Loaded Products -->
@@ -459,7 +459,7 @@
 
     </main>
     <script>
-        function filterProducts() {
+        function searchProducts() {
             var searchInput = document.getElementById("searchBar").value.toLowerCase();
             var products = document.getElementsByClassName("product");
 
@@ -472,8 +472,9 @@
                 }
             }
         }
-    </script>
-    <script>
+
+        //TODO FILTER BY PRICE ETC
+
         $(document).ready(function () {
             $('.show-sub-products').click(function () {
                 const productId = $(this).data('id');
@@ -492,6 +493,7 @@
                 alert(`${quantity} x ${name} added to the basket!`);
             });
         });
+
     </script>
 </body>
 
