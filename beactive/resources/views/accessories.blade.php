@@ -329,7 +329,7 @@
                 <ul>
                     <li><a id="home" href="{{ url('/') }}">Home</a></li>
                     <li><a id="basket" href="{{ route('basket') }}">Basket</a></li>
-                    <li><a id="products">Products</a>
+                    <li><a id="products" href="">Products</a>
                         <ul class="dropdown">
                             <li><a href="{{ route('supplements') }}">Supplements</a></li>
                             <li><a href="{{ route('gym') }}">Gym Equipment</a></li>
@@ -387,7 +387,8 @@
 
                 <!-- Dynamically Loaded Products -->
                 @foreach($mainProducts as $mainProduct)
-                    <div class="product" id="item{{ $mainProduct->id }}">
+                    <div class="product" id="item{{ $mainProduct->id }}" data-price="{{ $mainProduct->price }}"
+                        data-rating="{{ $mainProduct->rating }}">
                         <!-- Product Image -->
                         <img src="{{ asset('images/accessories/' . strtolower(str_replace(' ', '-', $mainProduct->name)) . '.jpeg') }}"
                             alt="{{ $mainProduct->name }}" width="100">
@@ -399,9 +400,9 @@
                         <label for="quantity-{{ $mainProduct->id }}" style="padding-bottom: 10px;">Quantity:</label>
                         <input type="number" id="quantity-{{ $mainProduct->id }}" data-id="{{ $mainProduct->id }}"
                             data-name="{{ $mainProduct->name }}" data-price="{{ $mainProduct->price }}"
-                            class="quantity-input" min="1" max="100" value="1" style="text-align: center;">
-                        <button class="add-to-basket" data-id="{{ $mainProduct->id }} ">Add to Basket</button>
+                            class="quantity-input" min="1" max="100" value="1">
                     </div>
+
                 @endforeach
             </div>
         </div>
@@ -459,21 +460,103 @@
 
     </main>
     <script>
-        function searchProducts() {
-            var searchInput = document.getElementById("searchBar").value.toLowerCase();
-            var products = document.getElementsByClassName("product");
 
-            for (let i = 0; i < products.length; i++) {
-                const productName = products[i].textContent.toLowerCase();
-                if (productName.includes(searchInput)) {
-                    products[i].style.display = "block";
+        //FILTER
+
+        $(document).ready(function () {
+            $('#apply-filter').click(function () {
+                var priceFilter = [];
+                // var ratingFilter = [];
+
+                $('input[name="price_checkbox"]:checked').each(function () {
+                    priceFilter.push($(this).val());
+                });
+
+                //UNCOMMENT WHEN RATINGS ARE ADDED
+                // $('input[name="rating_checkbox"]:checked').each(function () {
+                //     ratingFilter.push($(this).val());
+                // });
+
+                $('.product').each(function () {
+                    var price = parseFloat($(this).find('.product-price').text().replace('£', ''));
+                    //UNCOMMENT WHEN RATINGS ARE ADDED
+                    // var rating = parseInt($(this).find('.product-rating').data('rating'));
+
+                    var showProduct = true;
+
+                    if (priceFilter.length > 0 && !priceFilter.includes('all')) {
+                        if (priceFilter.includes('under50') && price >= 50) {
+                            showProduct = false;
+                        }
+                        if (priceFilter.includes('5-10') && (price < 5 || price > 10)) {
+                            showProduct = false;
+                        }
+                        if (priceFilter.includes('over10') && price <= 10) {
+                            showProduct = false;
+                        }
+                    }
+
+                    //UNCOMMENT WHEN RATINGS ARE ADDED
+                    // if (ratingFilter.length > 0 && !ratingFilter.includes('all')) {
+                    //     if (rating < Math.min(...ratingFilter)) {
+                    //         showProduct = false;
+                    //     }
+                    // }
+
+                    if (showProduct) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+
+            // Sort Products
+            $('#sort').change(function () {
+                var sortBy = $(this).val();
+
+                var products = $('.product').toArray();
+
+                products.sort(function (a, b) {
+                    var priceA = parseFloat($(a).find('.product-price').text().replace('£', ''));
+                    var priceB = parseFloat($(b).find('.product-price').text().replace('£', ''));
+                    var ratingA = parseInt($(a).find('.product-rating').data('rating'));
+                    var ratingB = parseInt($(b).find('.product-rating').data('rating'));
+
+                    if (sortBy === 'price-low-high') {
+                        return priceA - priceB;
+                    } else if (sortBy === 'price-high-low') {
+                        return priceB - priceA;
+                    } else if (sortBy === 'rating-high-low') {
+                        return ratingB - ratingA;
+                    } else if (sortBy === 'rating-low-high') {
+                        return ratingA - ratingB;
+                    }
+                    return 0;
+                });
+
+                // Append sorted products back to the grid
+                $.each(products, function (index, product) {
+                    $('#grid-container').append(product);
+                });
+            });
+        });
+
+        // Search Function
+        function searchProducts() {
+            var input = $('#searchBar').val().toLowerCase();
+            $('.product').each(function () {
+                var productName = $(this).find('p').first().text().toLowerCase();
+                if (productName.indexOf(input) > -1) {
+                    $(this).show();
                 } else {
-                    products[i].style.display = "none";
+                    $(this).hide();
                 }
-            }
+            });
         }
 
-        //TODO FILTER BY PRICE ETC
+
+
 
         $(document).ready(function () {
             $('.show-sub-products').click(function () {
