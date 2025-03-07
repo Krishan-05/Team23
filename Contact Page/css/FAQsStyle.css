@@ -2,9 +2,20 @@ summary {
     font-weight: bold;
     font-family: "Space Grotesk", sans-serif;
     font-size: 18px;
+    text-align:center;
   }
 
   h1 {
     text-align: center;
   }
 
+details {
+  font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+h2 {
+  text-decoration: underline;
+  text-align: center;
+}
