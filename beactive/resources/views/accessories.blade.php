@@ -480,7 +480,7 @@
 
                 $('.product').each(function () {
                     var price = parseFloat($(this).find('.product-price').text().replace('£', ''));
-                    var rating = parseInt($(this).find('.product-rating').data('rating'));
+                    var rating = $(this).data('rating');
 
                     var showProduct = true;
 
@@ -497,16 +497,9 @@
                     }
 
                     if (ratingFilter.length > 0 && !ratingFilter.includes('all')) {
-                        if (ratingFilter.includes('1') && rating < 1) {
-                            showProduct = false;
-                        }
-                        if (ratingFilter.includes('2') && rating < 2) {
-                            showProduct = false;
-                        }
-                        if (ratingFilter.includes('3') && rating < 3) {
-                            showProduct = false;
-                        }
-                        if (ratingFilter.includes('4') && rating < 4) {
+                        var ratingThreshold = parseInt(ratingFilter[0]);
+
+                        if (rating < ratingThreshold) {
                             showProduct = false;
                         }
                     }
