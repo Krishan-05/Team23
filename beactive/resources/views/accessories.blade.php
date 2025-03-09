@@ -510,39 +510,43 @@
                     }
                 });
             });
+        });
 
-            // Sort Products
-            $('#sort').change(function () {
-                var sortBy = $(this).val();
 
-                var products = $('.product').toArray();
+        // SORT
+        document.getElementById('sort').addEventListener('change', function () {
+            var sortOption = this.value;
+            var productContainer = document.querySelector('.grid-container');
+            var products = Array.from(document.querySelectorAll('.product'));
 
-                products.sort(function (a, b) {
-                    var priceA = parseFloat($(a).find('.product-price').text().replace('£', ''));
-                    var priceB = parseFloat($(b).find('.product-price').text().replace('£', ''));
-                    var ratingA = parseInt($(a).find('.product-rating').data('rating'));
-                    var ratingB = parseInt($(b).find('.product-rating').data('rating'));
+            products.sort(function (a, b) {
+                var priceA = parseFloat(a.getAttribute('data-price'));
+                var priceB = parseFloat(b.getAttribute('data-price'));
+                //UNCOMMENT WHEN RATINGS ARE ADDED
+                // var ratingA = parseInt(a.getAttribute('data-rating'));
+                // var ratingB = parseInt(b.getAttribute('data-rating'));
 
-                    if (sortBy === 'price-low-high') {
-                        return priceA - priceB;
-                    } else if (sortBy === 'price-high-low') {
-                        return priceB - priceA;
-                    } else if (sortBy === 'rating-high-low') {
-                        return ratingB - ratingA;
-                    } else if (sortBy === 'rating-low-high') {
-                        return ratingA - ratingB;
-                    }
+                if (sortOption === 'price-low-high') {
+                    return priceA - priceB;
+                } else if (sortOption === 'price-high-low') {
+                    return priceB - priceA;
+                    //UNCOMMENT WHEN RATINGS ARE ADDED
+                    // } else if (sortOption === 'rating-high-low') {
+                    //     return ratingB - ratingA;
+                    // } else if (sortOption === 'rating-low-high') {
+                    //     return ratingA - ratingB;
+                } else {
                     return 0;
-                });
+                }
+            });
 
-                // Append sorted products back to the grid
-                $.each(products, function (index, product) {
-                    $('#grid-container').append(product);
-                });
+            products.forEach(function (product) {
+                productContainer.appendChild(product);
             });
         });
 
-        // Search Function
+
+        // SEARCH
         function searchProducts() {
             var input = $('#searchBar').val().toLowerCase();
             $('.product').each(function () {
