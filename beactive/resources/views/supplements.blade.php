@@ -224,10 +224,9 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
             /* Gentle shadow for depth */
-            max-width: 240px;
             /* Restrict product card width for uniformity */
             text-align: center;
-            margin: 15px auto;
+            margin: 15px;
             /* Center products and add spacing */
             overflow: hidden;
             /* Ensure no content overflows */
