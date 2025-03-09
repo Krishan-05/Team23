@@ -211,6 +211,7 @@
 
         /* Product Cards */
         .product {
+            width: 200px;
             display: flex;
             flex-direction: column;
             align-items: center;
