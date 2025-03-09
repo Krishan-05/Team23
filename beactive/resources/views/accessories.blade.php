@@ -375,6 +375,8 @@
                             <option value="price-high-low">Price: High to Low</option>
                             <option value="rating-high-low">Rating: High to Low</option>
                             <option value="rating-low-high">Rating: Low to High</option>
+                            <option value="name-a-z">Name: A to Z</option>
+                            <option value="name-z-a">Name: Z to A</option>
                         </select>
                     </div>
 
@@ -388,7 +390,7 @@
                 <!-- Dynamically Loaded Products -->
                 @foreach($mainProducts as $mainProduct)
                     <div class="product" id="item{{ $mainProduct->id }}" data-price="{{ $mainProduct->price }}"
-                        data-rating="{{ $mainProduct->rating }}">
+                        data-rating="{{ $mainProduct->rating }}" data-name="{{ $mainProduct->name }}">
                         <!-- Product Image -->
                         <img src="{{ asset('images/accessories/' . strtolower(str_replace(' ', '-', $mainProduct->name)) . '.jpeg') }}"
                             alt="{{ $mainProduct->name }}" width="100">
@@ -522,7 +524,10 @@
             products.sort(function (a, b) {
                 var priceA = parseFloat(a.getAttribute('data-price'));
                 var priceB = parseFloat(b.getAttribute('data-price'));
-                //UNCOMMENT WHEN RATINGS ARE ADDED
+                var nameA = a.getAttribute('data-name').trim().toLowerCase();
+                var nameB = b.getAttribute('data-name').trim().toLowerCase();
+
+                // UNCOMMENT WHEN RATINGS ARE ADDED
                 // var ratingA = parseInt(a.getAttribute('data-rating'));
                 // var ratingB = parseInt(b.getAttribute('data-rating'));
 
@@ -530,7 +535,11 @@
                     return priceA - priceB;
                 } else if (sortOption === 'price-high-low') {
                     return priceB - priceA;
-                    //UNCOMMENT WHEN RATINGS ARE ADDED
+                } else if (sortOption === 'name-a-z') {
+                    return nameA.localeCompare(nameB);
+                } else if (sortOption === 'name-z-a') {
+                    return nameB.localeCompare(nameA);
+                    // UNCOMMENT WHEN RATINGS ARE ADDED
                     // } else if (sortOption === 'rating-high-low') {
                     //     return ratingB - ratingA;
                     // } else if (sortOption === 'rating-low-high') {
@@ -544,6 +553,7 @@
                 productContainer.appendChild(product);
             });
         });
+
 
 
         // SEARCH
