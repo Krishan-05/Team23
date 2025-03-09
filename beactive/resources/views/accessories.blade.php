@@ -349,18 +349,18 @@
                     <h3>Filter Products</h3>
 
                     <label for="price">Price Range:</label><br>
-                    <input type="checkbox" name="price_checkbox" value="all">All</input><br>
-                    <input type="checkbox" name="price_checkbox" value="under50">Under £50</input><br>
-                    <input type="checkbox" name="price_checkbox" value="5-10">£5 - £10</input><br>
-                    <input type="checkbox" name="price_checkbox" value="over10">Over £10</input><br>
+                    <input type="radio" name="price_checkbox" value="all">All</input><br>
+                    <input type="radio" name="price_checkbox" value="under50">Under £50</input><br>
+                    <input type="radio" name="price_checkbox" value="5-10">£5 - £10</input><br>
+                    <input type="radio" name="price_checkbox" value="over10">Over £10</input><br>
                     <br>
 
                     <label for="rating">Rating:</label><br>
-                    <input type="checkbox" name="rating_checkbox" value="all">All</input><br>
-                    <input type="checkbox" name="rating_checkbox" value="4">4★ & Up</input><br>
-                    <input type="checkbox" name="rating_checkbox" value="3">3★ & Up</input><br>
-                    <input type="checkbox" name="rating_checkbox" value="2">2★ & Up</input><br>
-                    <input type="checkbox" name="rating_checkbox" value="1">1★ & Up</input><br>
+                    <input type="radio" name="rating_checkbox" value="all">All</input><br>
+                    <input type="radio" name="rating_checkbox" value="4">4★ & Up</input><br>
+                    <input type="radio" name="rating_checkbox" value="3">3★ & Up</input><br>
+                    <input type="radio" name="rating_checkbox" value="2">2★ & Up</input><br>
+                    <input type="radio" name="rating_checkbox" value="1">1★ & Up</input><br>
                     <br>
 
                     <button id="apply-filter">Apply Filters</button>
@@ -402,7 +402,7 @@
                         <label for="quantity-{{ $mainProduct->id }}" style="padding-bottom: 10px;">Quantity:</label>
                         <input type="number" id="quantity-{{ $mainProduct->id }}" data-id="{{ $mainProduct->id }}"
                             data-name="{{ $mainProduct->name }}" data-price="{{ $mainProduct->price }}"
-                            class="quantity-input" min="1" max="100" value="1">
+                            data-rating="={{ $mainProduct->rating }}" class="quantity-input" min="1" max="100" value="1">
                     </div>
 
                 @endforeach
@@ -468,21 +468,19 @@
         $(document).ready(function () {
             $('#apply-filter').click(function () {
                 var priceFilter = [];
-                // var ratingFilter = [];
+                var ratingFilter = [];
 
                 $('input[name="price_checkbox"]:checked').each(function () {
                     priceFilter.push($(this).val());
                 });
 
-                //UNCOMMENT WHEN RATINGS ARE ADDED
-                // $('input[name="rating_checkbox"]:checked').each(function () {
-                //     ratingFilter.push($(this).val());
-                // });
+                $('input[name="rating_checkbox"]:checked').each(function () {
+                    ratingFilter.push($(this).val());
+                });
 
                 $('.product').each(function () {
                     var price = parseFloat($(this).find('.product-price').text().replace('£', ''));
-                    //UNCOMMENT WHEN RATINGS ARE ADDED
-                    // var rating = parseInt($(this).find('.product-rating').data('rating'));
+                    var rating = parseInt($(this).find('.product-rating').data('rating'));
 
                     var showProduct = true;
 
@@ -498,12 +496,20 @@
                         }
                     }
 
-                    //UNCOMMENT WHEN RATINGS ARE ADDED
-                    // if (ratingFilter.length > 0 && !ratingFilter.includes('all')) {
-                    //     if (rating < Math.min(...ratingFilter)) {
-                    //         showProduct = false;
-                    //     }
-                    // }
+                    if (ratingFilter.length > 0 && !ratingFilter.includes('all')) {
+                        if (ratingFilter.includes('1') && rating < 1) {
+                            showProduct = false;
+                        }
+                        if (ratingFilter.includes('2') && rating < 2) {
+                            showProduct = false;
+                        }
+                        if (ratingFilter.includes('3') && rating < 3) {
+                            showProduct = false;
+                        }
+                        if (ratingFilter.includes('4') && rating < 4) {
+                            showProduct = false;
+                        }
+                    }
 
                     if (showProduct) {
                         $(this).show();
@@ -527,9 +533,8 @@
                 var nameA = a.getAttribute('data-name').trim().toLowerCase();
                 var nameB = b.getAttribute('data-name').trim().toLowerCase();
 
-                // UNCOMMENT WHEN RATINGS ARE ADDED
-                // var ratingA = parseInt(a.getAttribute('data-rating'));
-                // var ratingB = parseInt(b.getAttribute('data-rating'));
+                var ratingA = parseInt(a.getAttribute('data-rating'));
+                var ratingB = parseInt(b.getAttribute('data-rating'));
 
                 if (sortOption === 'price-low-high') {
                     return priceA - priceB;
@@ -539,11 +544,10 @@
                     return nameA.localeCompare(nameB);
                 } else if (sortOption === 'name-z-a') {
                     return nameB.localeCompare(nameA);
-                    // UNCOMMENT WHEN RATINGS ARE ADDED
-                    // } else if (sortOption === 'rating-high-low') {
-                    //     return ratingB - ratingA;
-                    // } else if (sortOption === 'rating-low-high') {
-                    //     return ratingA - ratingB;
+                } else if (sortOption === 'rating-high-low') {
+                    return ratingB - ratingA;
+                } else if (sortOption === 'rating-low-high') {
+                    return ratingA - ratingB;
                 } else {
                     return 0;
                 }
