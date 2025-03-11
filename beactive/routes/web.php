@@ -26,21 +26,21 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 
 //User routes
-Route::middleware(['auth','userMiddleware'])->group(function(){
+Route::middleware(['auth', 'userMiddleware'])->group(function () {
 
-    Route::get('dashboard',[UserController::class, 'index'])->name('dashboard');
+    Route::get('dashboard', [UserController::class, 'index'])->name('dashboard');
 
 });
 
 
 // Admin Routes
-Route::middleware(['auth','adminMiddleware'])->group(function(){
+Route::middleware(['auth', 'adminMiddleware'])->group(function () {
 
-    Route::get('/admin/dashboard',[AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
 });
 
