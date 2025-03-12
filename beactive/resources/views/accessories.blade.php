@@ -390,25 +390,28 @@
 
                 <!-- Dynamically Loaded Products -->
                 @foreach($mainProducts as $mainProduct)
-                    <div class="product" id="item{{ $mainProduct->id }}" data-price="{{ $mainProduct->price }}"
-                        data-rating="{{ $mainProduct->rating }}" data-name="{{ $mainProduct->name }}">
-                        <!-- Product Image TODO CHANGE TO IMAGE FROM DATABASE -->
-                        <a href="{{ route('product.show', $mainProduct->id) }}">
+                    <a href="{{ route('product.show', $mainProduct->id) }}">
+
+                        <div class="product" id="item{{ $mainProduct->id }}" data-price="{{ $mainProduct->price }}"
+                            data-rating="{{ $mainProduct->rating }}" data-name="{{ $mainProduct->name }}">
+                            <!-- Product Image TODO CHANGE TO IMAGE FROM DATABASE -->
 
                             <img src="{{ asset('images/' . strtolower(str_replace(' ', '-', $mainProduct->name)) . '.jpeg') }}"
                                 alt="{{ $mainProduct->name }}" width="100">
-                        </a>
 
-                        <!-- Product Name -->
-                        <p>{{ $mainProduct->name }}</p>
-                        <!-- Product Price -->
-                        <p class="product-price">£{{ $mainProduct->price }}</p>
-                        <!-- Add to Basket Button -->
-                        <label for="quantity-{{ $mainProduct->id }}" style="padding-bottom: 10px;">Quantity:</label>
-                        <input type="number" id="quantity-{{ $mainProduct->id }}" data-id="{{ $mainProduct->id }}"
-                            data-name="{{ $mainProduct->name }}" data-price="{{ $mainProduct->price }}"
-                            data-rating="={{ $mainProduct->rating }}" class="quantity-input" min="1" max="100" value="1">
-                    </div>
+                            <!-- Product Name -->
+                            <p>{{ $mainProduct->name }}</p>
+                            <!-- Product Price -->
+                            <p class="product-price">£{{ $mainProduct->price }}</p>
+                            <!-- Add to Basket Button -->
+                            <label for="quantity-{{ $mainProduct->id }}" style="padding-bottom: 10px;">Quantity:</label>
+                            <input type="number" id="quantity-{{ $mainProduct->id }}" data-id="{{ $mainProduct->id }}"
+                                data-name="{{ $mainProduct->name }}" data-price="{{ $mainProduct->price }}"
+                                data-rating="={{ $mainProduct->rating }}" class="quantity-input" min="1" max="100"
+                                value="1">
+                        </div>
+                    </a>
+
 
                 @endforeach
             </div>
