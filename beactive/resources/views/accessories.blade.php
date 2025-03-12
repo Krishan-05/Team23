@@ -22,7 +22,6 @@
             grid-template-rows: auto auto auto auto;
             gap: 10px;
             padding: 10px;
-            padding-right: 0;
         }
 
         .grid-container div {

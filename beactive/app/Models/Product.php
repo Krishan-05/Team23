@@ -11,12 +11,10 @@ class Product extends Model
 
     protected $fillable = [
         'name',
-        'image',
         'description',
         'price',
         'stock',
         'parent_id',
-        'rating',
     ];
 
     public function subProducts()
