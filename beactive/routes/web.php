@@ -73,3 +73,5 @@ Route::get('/gym', [ProductController::class, 'showGym'])->name('gym');
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+
+Route::get('/products/{id}', [ProductController::class, 'showProduct'])->name('product.show');

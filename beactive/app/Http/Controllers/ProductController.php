@@ -52,4 +52,11 @@ class ProductController extends Controller
         return view('accessories', compact('mainProducts'));
     }
 
+    public function showProduct($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('product-details', compact('product'));
+    }
+
+
 }

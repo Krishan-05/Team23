@@ -392,9 +392,13 @@
                 @foreach($mainProducts as $mainProduct)
                     <div class="product" id="item{{ $mainProduct->id }}" data-price="{{ $mainProduct->price }}"
                         data-rating="{{ $mainProduct->rating }}" data-name="{{ $mainProduct->name }}">
-                        <!-- Product Image -->
-                        <img src="{{ asset('images/accessories/' . strtolower(str_replace(' ', '-', $mainProduct->name)) . '.jpeg') }}"
-                            alt="{{ $mainProduct->name }}" width="100">
+                        <!-- Product Image TODO CHANGE TO IMAGE FROM DATABASE -->
+                        <a href="{{ route('product.show', $mainProduct->id) }}">
+
+                            <img src="{{ asset('images/accessories/' . strtolower(str_replace(' ', '-', $mainProduct->name)) . '.jpeg') }}"
+                                alt="{{ $mainProduct->name }}" width="100">
+                        </a>
+
                         <!-- Product Name -->
                         <p>{{ $mainProduct->name }}</p>
                         <!-- Product Price -->
