@@ -127,3 +127,34 @@ body {
 .footer a:hover {
     text-decoration: underline;
 }
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; 
+    margin-left: 0; 
+}
+
+.checkbox input {
+    width: 16px;
+    height: 16px;
+    margin: 0; 
+}
+
+.checkbox label {
+    font-size: 1rem;
+}
+
+
+#discount-message {
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+.discount-success {
+    color: green;
+}
+
+.discount-fail {
+    color: red;
+}
