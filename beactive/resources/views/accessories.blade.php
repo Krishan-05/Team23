@@ -395,7 +395,7 @@
                         <!-- Product Image TODO CHANGE TO IMAGE FROM DATABASE -->
                         <a href="{{ route('product.show', $mainProduct->id) }}">
 
-                            <img src="{{ asset('images/accessories/' . strtolower(str_replace(' ', '-', $mainProduct->name)) . '.jpeg') }}"
+                            <img src="{{ asset('images/' . strtolower(str_replace(' ', '-', $mainProduct->name)) . '.jpeg') }}"
                                 alt="{{ $mainProduct->name }}" width="100">
                         </a>
 

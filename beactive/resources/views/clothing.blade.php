@@ -390,7 +390,7 @@
                 @foreach($mainProducts as $mainProduct)
                     <div class="product" id="item{{ $mainProduct->id }}">
                         <!-- Product Image -->
-                        <img src="{{ asset('images/clothing/' . strtolower(str_replace(' ', '-', $mainProduct->name)) . '.jpeg') }}"
+                        <img src="{{ asset('images/' . strtolower(str_replace(' ', '-', $mainProduct->name)) . '.jpeg') }}"
                             alt="{{ $mainProduct->name }}" width="100">
                         <!-- Product Name -->
                         <p>{{ $mainProduct->name }}</p>
