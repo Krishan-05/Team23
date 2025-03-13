@@ -54,8 +54,12 @@ class ProductController extends Controller
 
     public function showProduct($id)
     {
-        $product = Product::findOrFail($id);
-        return view('product-details', compact('product'));
+        $mainProduct = Product::find($id);
+
+        if (!$mainProduct) {
+            abort(404); // Product not found
+        }
+        return view('product-details', compact('mainProduct'));
     }
 
 
