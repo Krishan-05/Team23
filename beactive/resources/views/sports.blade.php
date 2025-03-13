@@ -61,7 +61,6 @@
         }
 
 
-        /* todo after mvp */
         #grid-filter {
             grid-row-start: 2;
             grid-row-end: 7;
@@ -111,7 +110,6 @@
             background-color: #0056b3;
         }
 
-        /* todo after mvp */
         #grid-sort {
             display: flex;
             justify-content: center;
@@ -207,10 +205,15 @@
             /* Different style for placeholder */
         }
 
+        .product a {
+            margin-bottom: auto;
+        }
+
 
         /* Product Cards */
         .product {
             width: 200px;
+            height: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -230,6 +233,7 @@
             /* Center products and add spacing */
             overflow: hidden;
             /* Ensure no content overflows */
+            padding: 20px;
         }
 
         .product:hover {
@@ -242,14 +246,15 @@
         }
 
         .product img {
-            width: 140px;
+            width: auto;
             /* Ideal size for product images */
-            height: auto;
-            margin-bottom: 12px;
+            height: 120px;
             border-radius: 10px;
             /* Rounded edges for images */
             transition: transform 0.3s ease, filter 0.3s ease;
             /* Smooth zoom effect */
+            margin-bottom: auto;
+
         }
 
         .product:hover img {
@@ -370,11 +375,13 @@
                     <div id="sort-bar">
                         <label for="sort">Sort By:</label>
                         <select name="sort" id="sort">
-                            <option value="default">Default</option>
+                            <option value="default" selected>Select Sort Option</option>
                             <option value="price-low-high">Price: Low to High</option>
                             <option value="price-high-low">Price: High to Low</option>
-                            <option value="rating-high-low">Rating: High to Low</option>
                             <option value="rating-low-high">Rating: Low to High</option>
+                            <option value="rating-high-low">Rating: High to Low</option>
+                            <option value="name-a-z">Name: A to Z</option>
+                            <option value="name-z-a">Name: Z to A</option>
                         </select>
                     </div>
 
@@ -387,19 +394,23 @@
 
                 <!-- Dynamically Loaded Products -->
                 @foreach($mainProducts as $mainProduct)
-                    <div class="product" id="item{{ $mainProduct->id }}">
+                    <div class="product" id="item{{ $mainProduct->id }}" data-price="{{ $mainProduct->price }}"
+                        data-rating="{{ $mainProduct->rating }}" data-name="{{ $mainProduct->name }}">
                         <!-- Product Image -->
-                        <img src="{{ asset('images/' . strtolower(str_replace(' ', '-', $mainProduct->name)) . '.jpeg') }}"
-                            alt="{{ $mainProduct->name }}" width="100">
+                        <a href="{{ route('product.show', $mainProduct->id) }}" style="text-decoration: none;">
+                            <img src="{{ asset('images/' . strtolower(str_replace(' ', '-', $mainProduct->name)) . '.jpeg') }}"
+                                alt="{{ $mainProduct->name }}" width="100">
+                        </a>
                         <!-- Product Name -->
                         <p>{{ $mainProduct->name }}</p>
+
                         <!-- Product Price -->
                         <p class="product-price">£{{ $mainProduct->price }}</p>
                         <!-- Add to Basket Button -->
                         <label for="quantity-{{ $mainProduct->id }}" style="padding-bottom: 10px;">Quantity:</label>
                         <input type="number" id="quantity-{{ $mainProduct->id }}" data-id="{{ $mainProduct->id }}"
                             data-name="{{ $mainProduct->name }}" data-price="{{ $mainProduct->price }}"
-                            class="quantity-input" min="1" max="100" value="1" style="text-align: center;">
+                            data-rating="={{ $mainProduct->rating }}" class="quantity-input" min="1" max="100" value="1">
                         <button class="add-to-basket" data-id="{{ $mainProduct->id }} ">Add to Basket</button>
                     </div>
                 @endforeach
@@ -459,21 +470,113 @@
 
     </main>
     <script>
-        function filterProducts() {
-            var searchInput = document.getElementById("searchBar").value.toLowerCase();
-            var products = document.getElementsByClassName("product");
 
-            for (let i = 0; i < products.length; i++) {
-                const productName = products[i].textContent.toLowerCase();
-                if (productName.includes(searchInput)) {
-                    products[i].style.display = "block";
+        //FILTER
+
+        $(document).ready(function () {
+            $('#apply-filter').click(function () {
+                var priceFilter = [];
+                var ratingFilter = [];
+
+                $('input[name="price_checkbox"]:checked').each(function () {
+                    priceFilter.push($(this).val());
+                });
+
+                $('input[name="rating_checkbox"]:checked').each(function () {
+                    ratingFilter.push($(this).val());
+                });
+
+                $('.product').each(function () {
+                    var price = parseFloat($(this).find('.product-price').text().replace('£', ''));
+                    var rating = $(this).data('rating');
+
+                    var showProduct = true;
+
+                    if (priceFilter.length > 0 && !priceFilter.includes('all')) {
+                        if (priceFilter.includes('under50') && price >= 50) {
+                            showProduct = false;
+                        }
+                        if (priceFilter.includes('5-10') && (price < 5 || price > 10)) {
+                            showProduct = false;
+                        }
+                        if (priceFilter.includes('over10') && price <= 10) {
+                            showProduct = false;
+                        }
+                    }
+
+                    if (ratingFilter.length > 0 && !ratingFilter.includes('all')) {
+                        var ratingThreshold = parseInt(ratingFilter[0]);
+
+                        if (rating < ratingThreshold) {
+                            showProduct = false;
+                        }
+                    }
+
+                    if (showProduct) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+
+
+        // SORT
+        document.getElementById('sort').addEventListener('change', function () {
+            var sortOption = this.value;
+            var productContainer = document.querySelector('.grid-container');
+            var products = Array.from(document.querySelectorAll('.product'));
+
+            products.sort(function (a, b) {
+                var priceA = parseFloat(a.getAttribute('data-price'));
+                var priceB = parseFloat(b.getAttribute('data-price'));
+                var nameA = a.getAttribute('data-name').trim().toLowerCase();
+                var nameB = b.getAttribute('data-name').trim().toLowerCase();
+
+                var ratingA = parseInt(a.getAttribute('data-rating'));
+                var ratingB = parseInt(b.getAttribute('data-rating'));
+
+                if (sortOption === 'price-low-high') {
+                    return priceA - priceB;
+                } else if (sortOption === 'price-high-low') {
+                    return priceB - priceA;
+                } else if (sortOption === 'name-a-z') {
+                    return nameA.localeCompare(nameB);
+                } else if (sortOption === 'name-z-a') {
+                    return nameB.localeCompare(nameA);
+                } else if (sortOption === 'rating-high-low') {
+                    return ratingB - ratingA;
+                } else if (sortOption === 'rating-low-high') {
+                    return ratingA - ratingB;
                 } else {
-                    products[i].style.display = "none";
+                    return 0;
                 }
-            }
+            });
+
+            products.forEach(function (product) {
+                productContainer.appendChild(product);
+            });
+        });
+
+
+
+        // SEARCH
+        function searchProducts() {
+            var input = $('#searchBar').val().toLowerCase();
+            $('.product').each(function () {
+                var productName = $(this).find('p').first().text().toLowerCase();
+                if (productName.indexOf(input) > -1) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
         }
-    </script>
-    <script>
+
+
+
+
         $(document).ready(function () {
             $('.show-sub-products').click(function () {
                 const productId = $(this).data('id');
@@ -492,6 +595,7 @@
                 alert(`${quantity} x ${name} added to the basket!`);
             });
         });
+
     </script>
 </body>
 

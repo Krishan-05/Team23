@@ -61,7 +61,6 @@
         }
 
 
-        /* todo after mvp */
         #grid-filter {
             grid-row-start: 2;
             grid-row-end: 7;
@@ -111,7 +110,6 @@
             background-color: #0056b3;
         }
 
-        /* todo after mvp */
         #grid-sort {
             display: flex;
             justify-content: center;
@@ -250,7 +248,7 @@
         .product img {
             width: auto;
             /* Ideal size for product images */
-            height: 160px;
+            height: 120px;
             border-radius: 10px;
             /* Rounded edges for images */
             transition: transform 0.3s ease, filter 0.3s ease;
@@ -285,8 +283,6 @@
             color: #007bff;
             /* Attractive blue tone for pricing */
             margin: 5px 0;
-            margin-top: auto;
-
         }
 
         .product-button,
@@ -398,16 +394,13 @@
 
                 <!-- Dynamically Loaded Products -->
                 @foreach($mainProducts as $mainProduct)
-
                     <div class="product" id="item{{ $mainProduct->id }}" data-price="{{ $mainProduct->price }}"
                         data-rating="{{ $mainProduct->rating }}" data-name="{{ $mainProduct->name }}">
-                        <!-- Product Image TODO CHANGE TO IMAGE FROM DATABASE -->
+                        <!-- Product Image -->
                         <a href="{{ route('product.show', $mainProduct->id) }}" style="text-decoration: none;">
-
                             <img src="{{ asset('images/' . strtolower(str_replace(' ', '-', $mainProduct->name)) . '.jpeg') }}"
                                 alt="{{ $mainProduct->name }}" width="100">
                         </a>
-
                         <!-- Product Name -->
                         <p>{{ $mainProduct->name }}</p>
 
@@ -419,10 +412,7 @@
                             data-name="{{ $mainProduct->name }}" data-price="{{ $mainProduct->price }}"
                             data-rating="={{ $mainProduct->rating }}" class="quantity-input" min="1" max="100" value="1">
                         <button class="add-to-basket" data-id="{{ $mainProduct->id }} ">Add to Basket</button>
-
                     </div>
-
-
                 @endforeach
             </div>
         </div>
