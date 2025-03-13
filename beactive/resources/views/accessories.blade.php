@@ -208,10 +208,15 @@
             /* Different style for placeholder */
         }
 
+        .product a {
+            margin-bottom: auto;
+        }
+
 
         /* Product Cards */
         .product {
             width: 200px;
+            height: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -231,6 +236,7 @@
             /* Center products and add spacing */
             overflow: hidden;
             /* Ensure no content overflows */
+            padding: 20px;
         }
 
         .product:hover {
@@ -243,14 +249,15 @@
         }
 
         .product img {
-            width: 140px;
+            width: auto;
             /* Ideal size for product images */
-            height: auto;
-            margin-bottom: 12px;
+            height: 160px;
             border-radius: 10px;
             /* Rounded edges for images */
             transition: transform 0.3s ease, filter 0.3s ease;
             /* Smooth zoom effect */
+            margin-bottom: auto;
+
         }
 
         .product:hover img {
@@ -279,6 +286,8 @@
             color: #007bff;
             /* Attractive blue tone for pricing */
             margin: 5px 0;
+            margin-top: auto;
+
         }
 
         .product-button,
@@ -390,27 +399,29 @@
 
                 <!-- Dynamically Loaded Products -->
                 @foreach($mainProducts as $mainProduct)
-                    <a href="{{ route('product.show', $mainProduct->id) }}">
 
-                        <div class="product" id="item{{ $mainProduct->id }}" data-price="{{ $mainProduct->price }}"
-                            data-rating="{{ $mainProduct->rating }}" data-name="{{ $mainProduct->name }}">
-                            <!-- Product Image TODO CHANGE TO IMAGE FROM DATABASE -->
+                    <div class="product" id="item{{ $mainProduct->id }}" data-price="{{ $mainProduct->price }}"
+                        data-rating="{{ $mainProduct->rating }}" data-name="{{ $mainProduct->name }}">
+                        <!-- Product Image TODO CHANGE TO IMAGE FROM DATABASE -->
+                        <a href="{{ route('product.show', $mainProduct->id) }}" style="text-decoration: none;">
 
                             <img src="{{ asset('images/' . strtolower(str_replace(' ', '-', $mainProduct->name)) . '.jpeg') }}"
                                 alt="{{ $mainProduct->name }}" width="100">
+                        </a>
 
-                            <!-- Product Name -->
-                            <p>{{ $mainProduct->name }}</p>
-                            <!-- Product Price -->
-                            <p class="product-price">£{{ $mainProduct->price }}</p>
-                            <!-- Add to Basket Button -->
-                            <label for="quantity-{{ $mainProduct->id }}" style="padding-bottom: 10px;">Quantity:</label>
-                            <input type="number" id="quantity-{{ $mainProduct->id }}" data-id="{{ $mainProduct->id }}"
-                                data-name="{{ $mainProduct->name }}" data-price="{{ $mainProduct->price }}"
-                                data-rating="={{ $mainProduct->rating }}" class="quantity-input" min="1" max="100"
-                                value="1">
-                        </div>
-                    </a>
+                        <!-- Product Name -->
+                        <p>{{ $mainProduct->name }}</p>
+
+                        <!-- Product Price -->
+                        <p class="product-price">£{{ $mainProduct->price }}</p>
+                        <!-- Add to Basket Button -->
+                        <label for="quantity-{{ $mainProduct->id }}" style="padding-bottom: 10px;">Quantity:</label>
+                        <input type="number" id="quantity-{{ $mainProduct->id }}" data-id="{{ $mainProduct->id }}"
+                            data-name="{{ $mainProduct->name }}" data-price="{{ $mainProduct->price }}"
+                            data-rating="={{ $mainProduct->rating }}" class="quantity-input" min="1" max="100" value="1">
+                        <button class="add-to-basket" data-id="{{ $mainProduct->id }} ">Add to Basket</button>
+
+                    </div>
 
 
                 @endforeach
