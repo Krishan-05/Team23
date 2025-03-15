@@ -13,7 +13,290 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
 
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            grid-template-rows: auto auto auto auto;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .grid-container div {
+            background-color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 20px;
+            border: 1px solid black;
+        }
+
+
+        #grid-title {
+            font-family: 'Space Grotesk', sans-serif;
+            /* Matches the chosen font */
+            font-size: 36px;
+            /* Larger font size for prominence */
+            font-weight: 700;
+            /* Bold for emphasis */
+            color: #007bff;
+            /* Eye-catching blue to match the theme */
+            text-align: center;
+            /* Center the title horizontally */
+            text-transform: uppercase;
+            /* Capitalize all letters for impact */
+            margin: 20px 0;
+            /* Add vertical spacing above and below */
+            letter-spacing: 2px;
+            /* Slight spacing for elegance */
+            background-color: #ffffff;
+            /* Subtle background for distinction */
+            padding: 15px;
+            /* Adds space around the title text */
+            border-radius: 12px;
+            /* Smooth rounded  */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow for depth */
+        }
+
+
+        #grid-filter {
+            grid-row-start: 2;
+            grid-row-end: 7;
+            /* change to 7 */
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            margin-right: 50px;
+            height: auto;
+        }
+
+        #grid-filter h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+
+        }
+
+        #grid-filter label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        #grid-filter select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+
+        #apply-filter {
+            margin-top: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #apply-filter:hover {
+            background-color: #0056b3;
+        }
+
+        #grid-sort {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            grid-column-start: 2;
+            grid-column-end: 4;
+            /* Spacious padding for comfort */
+
+            background-color: #ffffff;
+            /* Clean white background */
+            border: none;
+
+            margin-bottom: 20px;
+            padding: 20px;
+
+        }
+
+        #sort-bar {
+            width: 100%;
+            /* Full width for responsiveness */
+            max-width: 400px;
+            /* Restrict maximum width */
+            padding: 12px 20px;
+            /* Spacious padding for comfort */
+            font-size: 16px;
+            /* Readable text size */
+            border: 1px solid #e6e6e6;
+            /* Subtle border matching product cards */
+            border-radius: 25px;
+            /* Fully rounded */
+            background-color: #ffffff;
+            /* Clean white background */
+            outline: none;
+            /* Remove default focus outline */
+            box-shadow: none;
+            /* Removes any shadow effect */
+            transition: border-color 0.3s ease;
+            /* Smooth transition for border color */
+        }
+
+
+        #grid-search {
+            display: flex;
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            margin-bottom: 20px;
+            /* Add spacing */
+            background-color: transparent;
+            /* Remove any background color */
+            border: none;
+            /* Remove any border */
+            box-shadow: none;
+            /* Remove any shadow */
+        }
+
+        #searchBar {
+            width: 100%;
+            /* Full width for responsiveness */
+            max-width: 400px;
+            /* Restrict maximum width */
+            padding: 12px 20px;
+            /* Spacious padding for comfort */
+            font-size: 16px;
+            /* Readable text size */
+            border: 1px solid #e6e6e6;
+            /* Subtle border matching product cards */
+            border-radius: 25px;
+            /* Fully rounded */
+            background-color: #ffffff;
+            /* Clean white background */
+            outline: none;
+            /* Remove default focus outline */
+            box-shadow: none;
+            /* Removes any shadow effect */
+            transition: border-color 0.3s ease;
+            /* Smooth transition for border color */
+        }
+
+        #searchBar:focus {
+            border-color: #007bff;
+            /* Highlight border on focus */
+            box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2);
+            /* Optional shadow on focus */
+        }
+
+        #searchBar::placeholder {
+            color: #999999;
+            /* Subtle placeholder color */
+            font-style: italic;
+            /* Different style for placeholder */
+        }
+
+        .product img {
+            /* Ideal size for product images */
+            height: 500px;
+            width: auto;
+            /* Rounded edges for images */
+            transition: transform 0.3s ease, filter 0.3s ease;
+            /* Smooth zoom effect */
+            margin: auto;
+            border: 1px solid red;
+
+        }
+
+        .product {
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            /* Clean white background */
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            /* Gentle shadow for depth */
+            margin: 15px;
+            /* Center products and add spacing */
+            padding: 20px;
+            align-content: flex-start;
+        }
+
+        .product p {
+            margin: 10px 0 5px;
+            font-size: 17px;
+            /* Perfect size for readability */
+            font-weight: 600;
+            /* Enhance visibility of product names */
+            color: #333333;
+            /* Dark text for strong contrast */
+
+            border: 1px solid pink;
+        }
+
+        .product-price {
+            font-size: 16px;
+            /* Adjust size for emphasis */
+            font-weight: 500;
+            /* Medium weight for hierarchy */
+            color: #007bff;
+            /* Attractive blue tone for pricing */
+            margin: 5px 0;
+
+            border: 1px solid blue;
+        }
+
+        .product-button,
+        .add-to-basket {
+            margin-top: 12px;
+            background-color: #007bff;
+            /* Brand primary color */
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            /* Fully rounded buttons for a modern feel */
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Light shadow for better visibility */
+            border: 1px solid purple;
+
+        }
+
+        .product-button:hover,
+        .add-to-basket:hover {
+            background-color: #0056b3;
+            /* Slightly darker blue on hover */
+            transform: scale(1.05);
+            /* Scale up button slightly on hover */
+        }
+
+        .product-button:active,
+        .add-to-basket:active {
+            background-color: #004085;
+            /* Even darker blue for active state */
+            transform: scale(1);
+            /* Remove scale for pressed state */
+            box-shadow: none;
+            /* Remove shadow for pressed effect */
+        }
     </style>
 </head>
 
@@ -43,10 +326,8 @@
         <div class="product" id="item{{ $mainProduct->id }}" data-price="{{ $mainProduct->price }}"
             data-rating="{{ $mainProduct->rating }}" data-name="{{ $mainProduct->name }}">
             <!-- Product Image -->
-            <a href="{{ route('product.show', $mainProduct->id) }}" style="text-decoration: none;">
-                <img src="{{ asset('images/' . strtolower(str_replace(' ', '-', $mainProduct->name)) . '.jpeg') }}"
-                    alt="{{ $mainProduct->name }}" width="100">
-            </a>
+            <img src="{{ asset('images/' . strtolower(str_replace(' ', '-', $mainProduct->name)) . '.jpeg') }}"
+                alt="{{ $mainProduct->name }}" width="100">
             <!-- Product Name -->
             <p>{{ $mainProduct->name }}</p>
 
@@ -138,6 +419,26 @@
 
         let rating = {{ $mainProduct->rating }};
         displayStars(rating);
+
+
+        $(document).ready(function () {
+            $('.show-sub-products').click(function () {
+                const productId = $(this).data('id');
+                $(`#sub-products-${productId}`).toggle();
+            });
+            $('.add-to-basket').click(function () {
+                const subProductId = $(this).data('id');
+                const quantity = $(`#quantity-${subProductId}`).val();
+                const name = $(`#quantity-${subProductId}`).data('name');
+                const price = $(`#quantity-${subProductId}`).data('price');
+
+                const basketItems = JSON.parse(localStorage.getItem('basket')) || [];
+                basketItems.push({ id: subProductId, name, price, quantity });
+                localStorage.setItem('basket', JSON.stringify(basketItems));
+
+                alert(`${quantity} x ${name} added to the basket!`);
+            });
+        });
     </script>
 
 </body>
