@@ -211,12 +211,12 @@
 
         .product img {
             /* Ideal size for product images */
-            height: 500px;
+            height: 100px;
             width: auto;
             /* Rounded edges for images */
             transition: transform 0.3s ease, filter 0.3s ease;
             /* Smooth zoom effect */
-            margin: auto;
+            margin-right: auto;
             border: 1px solid red;
 
         }
@@ -233,7 +233,6 @@
             margin: 15px;
             /* Center products and add spacing */
             padding: 20px;
-            align-content: flex-start;
         }
 
         .product p {
@@ -297,6 +296,25 @@
             box-shadow: none;
             /* Remove shadow for pressed effect */
         }
+
+        .review-button {
+            background-color: #007bff;
+            /* Blue color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .review-button:hover {
+            background-color: #0056b3;
+            /* Darker blue on hover */
+            transform: scale(1.05);
+            /* Slightly larger on hover */
+        }
     </style>
 </head>
 
@@ -330,23 +348,38 @@
                 alt="{{ $mainProduct->name }}" width="100">
             <!-- Product Name -->
             <p>{{ $mainProduct->name }}</p>
-
             <!-- Product Price -->
             <p class="product-price">£{{ $mainProduct->price }}</p>
-
             <!-- Product Rating -->
             <p class="product-rating" id="stars">Rating: </p>
-
-
             <!-- Product Description -->
             <p>{{ $mainProduct->description }}</p>
-
             <!-- Add to Basket Button -->
             <label for="quantity-{{ $mainProduct->id }}" style="padding-bottom: 10px;">Quantity:</label>
             <input type="number" id="quantity-{{ $mainProduct->id }}" data-id="{{ $mainProduct->id }}"
                 data-name="{{ $mainProduct->name }}" data-price="{{ $mainProduct->price }}"
                 data-rating="={{ $mainProduct->rating }}" class="quantity-input" min="1" max="100" value="1">
             <button class="add-to-basket" data-id="{{ $mainProduct->id }} ">Add to Basket</button>
+
+            <div class="reviews-section">
+                <h3>Customer Reviews</h3>
+
+                @if($reviews->isEmpty())
+                    <p>No reviews yet. Be the first to review this product!</p>
+                @else
+                    @foreach($reviews as $review)
+                        <div class="review">
+                            <p><strong>{{ $review->customer_name }}</strong> ({{ $review->rating }}/5 ⭐)</p>
+                            <p>{{ $review->comment }}</p>
+                            <hr>
+                        </div>
+                        <button class="review-button">Leave a Review</button>
+
+                    @endforeach
+                @endif
+            </div>
+
+
         </div>
 
         <footer id="footer">

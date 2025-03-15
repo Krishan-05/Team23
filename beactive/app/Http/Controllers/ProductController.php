@@ -55,7 +55,8 @@ class ProductController extends Controller
     public function showProduct($id)
     {
         $mainProduct = Product::find($id);
-        return view('product-details', compact('mainProduct'));
+        $reviews = $mainProduct->reviews;
+        return view('product-details', compact('mainProduct', 'reviews'));
     }
 
 
