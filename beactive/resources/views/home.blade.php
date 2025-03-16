@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon.ico') }}">
     <script src="{{ asset('js/call-to-action.js') }}"></script>
-    <title>beActive - Home</title> <!-- Title --> 
+    <title>beActive - Home</title> <!-- Title -->
 </head>
 
 <body>
     <main>
-    <header id="main-header">
+        <header id="main-header">
             <!-- Brand name within the header -->
             <h1> <img src="images/Team23 Logo No background.png" alt="Brand logo" width="80" height="80"> <br> </h1>
             <nav class="navbar"> <!-- Navbar in the header -->
@@ -37,16 +39,16 @@
             <p class="hero-subtitle">Fuel Your Fitness Journey with beActive</p>
             @auth
                 @if(auth()->user()->useraccess == 'admin')
-                    <a href="{{ route('admin.dashboard') }}"class = "cta-button">Admin Dashboard</a>
+                    <a href="{{ route('admin.dashboard') }}" class="cta-button">Admin Dashboard</a>
                 @else
-                    <a href="{{ route('dashboard') }}" class = "cta-button">Dashboard</a>
+                    <a href="{{ route('dashboard') }}" class="cta-button">Dashboard</a>
                 @endif
-                @endauth
+            @endauth
 
-                @guest
-                    <a href="{{ route('login') }}" class = "cta-button">Login</a>
-                @endguest
-            <p class="hero-subtitle"> At beActive, our team is dedicated to providing you with the best<br>products, 
+            @guest
+                <a href="{{ route('login') }}" class="cta-button">Login</a>
+            @endguest
+            <p class="hero-subtitle"> At beActive, our team is dedicated to providing you with the best<br>products,
                 supplements and apparel to help you on your fitness journey.<br>
                 Whether you're a beginner or a fitness pro we have you covered! join beActive today!
 
@@ -57,13 +59,13 @@
                 <h2>Subscribe to Our Newsletter</h2>
                 <p>Stay updated on the latest products and exclusive offers!</p>
                 <form id="newsletter-form">
-                    <input type="email" placeholder="Enter your email" required class = "enter-text">
+                    <input type="email" placeholder="Enter your email" required class="enter-text">
                     <button type="submit">Subscribe</button>
                 </form>
             </div>
-            
 
-        
+
+
             <div class="cta-box reviews">
                 <h2>Customer Reviews</h2>
                 <div class="carousel">
@@ -85,7 +87,7 @@
                     <button class="next">❯</button>
                 </div>
             </div>
-        
+
             <div class="cta-box products">
                 <h2>View Our Products</h2>
                 <p>Discover the best gear, apparel, and supplements for your fitness journey.</p>
@@ -100,16 +102,16 @@
                         <img src="images/gymproduct3.webp" alt="Gym Product 3">
                     </div>
                 </div>
-                <a href="{{ route('supplements') }}"class="cta-link">Browse Now</a>
+                <a href="{{ route('supplements') }}" class="cta-link">Browse Now</a>
             </div>
-            
+
         </section>
 
         <footer id="footer">
             <div class="footer-container">
                 <div class="footertext">
                     <p>Our Social Networks</p>
-                </div> 
+                </div>
                 <div class="socialimages">
                     <a href="https://www.facebook.com/" target="_blank">
                         <img src="{{ asset('images/facebook logo small.png') }}" alt="Facebook logo">
@@ -135,7 +137,8 @@
                             @auth
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button type="submit" style="border: none; background: none; color: inherit; font: inherit; cursor: pointer; margin-left: 50px; text-align: center;">
+                                    <button type="submit"
+                                        style="border: none; background: none; color: inherit; font: inherit; cursor: pointer; margin-left: 50px; text-align: center;">
                                         Logout
                                     </button>
                                 </form>
@@ -145,7 +148,7 @@
                         </p>
                     </div>
                     <div class="footerlinkaboutus">
-                        <h5>About us</h5> 
+                        <h5>About us</h5>
                         <p><a href="{{ url('/') }}">Our Ethos</a></p>
                     </div>
                 </div>
@@ -156,4 +159,5 @@
         </footer>
     </main>
 </body>
+
 </html>
