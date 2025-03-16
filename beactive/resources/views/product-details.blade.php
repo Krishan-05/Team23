@@ -421,7 +421,8 @@
                             <p class="customer-rating" id="stars-{{ $review->id }}">Rating: </p>
                             </p>
                             <p>{{ $review->comment }}</p>
-                            <p><em>Reviewed on: {{ $review->created_at->format('F j, Y \a\t H:i') }}</em></p>
+                            <p><em>Reviewed on: {{ \Carbon\Carbon::parse($review->created_at)->format('F j, Y \a\t H:i') }}</em>
+                            </p>
                             <hr>
                         </div>
                     @endforeach

@@ -12,21 +12,22 @@ class ReviewController extends Controller
         return view('reviews.add', ['productId' => $productId]);
     }
 
-    public function submitReview(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'customer_name' => 'required|string|max:255',
             'rating' => 'required|integer|min:1|max:5',
             'comment' => 'required|string|max:1000',
-            'product_id' => 'required|integer',
+            'product_id' => 'required|exists:products,id',
         ]);
 
-        Review::create([
-            'product_id' => $request->input('product_id'),
-            'customer_name' => $request->input('customer_name'),
-            'rating' => $request->input('rating'),
-            'comment' => $request->input('comment'),
-        ]);
+        $review = new Review();
+        $review->product_id = $request->product_id;
+        $review->customer_name = $request->customer_name;
+        $review->rating = $request->rating;
+        $review->comment = $request->comment;
+        $review->save();
+
 
         return redirect()->route('product.show', ['id' => $request->input('product_id')])
             ->with('success', 'Review submitted successfully!');

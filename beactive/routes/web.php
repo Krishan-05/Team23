@@ -84,4 +84,5 @@ Route::get('/product/{id}/reviews', [ReviewController::class, 'showReviews'])->n
 
 Route::get('/product/{id}/review', [ReviewController::class, 'showReviewForm'])->name('reviews.add');
 
-Route::post('/product/{id}/review', [ReviewController::class, 'submitReview'])->name('reviews.submit');
+Route::post('/product/{id}/review', [ReviewController::class, 'store'])->name('reviews.submit');
+
