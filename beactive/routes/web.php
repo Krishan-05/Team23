@@ -13,6 +13,8 @@ use App\Http\Controllers\SportController;
 use App\Http\Controllers\ClothingController;
 use App\Http\Controllers\GymController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ReviewController;
+
 
 Route::get('/', function () {
     return view('home');
@@ -75,3 +77,11 @@ Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 
 Route::get('/products/{id}', [ProductController::class, 'showProduct'])->name('product.show');
+
+Route::post('/reviews', action: [ReviewController::class, 'store'])->name('reviews.store');
+
+Route::get('/product/{id}/reviews', [ReviewController::class, 'showReviews'])->name('reviews.index');
+
+Route::get('/product/{id}/review', [ReviewController::class, 'showReviewForm'])->name('reviews.add');
+
+Route::post('/product/{id}/review', [ReviewController::class, 'submitReview'])->name('reviews.submit');

@@ -315,6 +315,54 @@
             transform: scale(1.05);
             /* Slightly larger on hover */
         }
+
+        /* css for pop up leave a review */
+        /* Modal Style */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            /* Stay on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Black background with transparency */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            margin: 15% auto;
+            width: 80%;
+            /* Adjust size as needed */
+            max-width: 500px;
+        }
+
+        /* Close Button */
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            /* Make it clickable */
+            position: absolute;
+            top: 10px;
+            right: 25px;
+        }
+
+        /* Hover effect for close button */
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -369,17 +417,49 @@
                 @else
                     @foreach($reviews as $review)
                         <div class="review">
-                            <p><strong>{{ $review->customer_name }}</strong> ({{ $review->rating }}/5 ⭐)</p>
+                            <p><strong>{{ $review->customer_name }}</strong> -
+                            <p class="customer-rating" id="stars-{{ $review->id }}">Rating: </p>
+                            </p>
                             <p>{{ $review->comment }}</p>
+                            <p><em>Reviewed on: {{ $review->created_at->format('F j, Y \a\t H:i') }}</em></p>
                             <hr>
                         </div>
-                        <button class="review-button">Leave a Review</button>
-
                     @endforeach
                 @endif
+                <button class="review-button" onclick="openReviewPopup()">Leave a Review</button>
+
+                <div id="reviewPopup" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeReviewPopup()">&times;</span>
+                        <h2>Submit Your Review</h2>
+
+                        <form action="{{ route('reviews.store') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $mainProduct->id }}">
+                            <!-- Dynamic Product ID -->
+
+                            <label for="customer_name">Your Name</label>
+                            <input type="text" name="customer_name" id="customer_name" placeholder="Your Name"
+                                required><br>
+
+                            <label for="rating">Rating (1-5)</label>
+                            <div class="stars">
+                                <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                                <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                                <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                                <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                                <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+                            </div><br>
+
+                            <label for="comment">Your Review</label>
+                            <textarea name="comment" id="comment" placeholder="Write your review here..." rows="4"
+                                required></textarea><br>
+
+                            <input type="submit" value="Submit Review">
+                        </form>
+                    </div>
+                </div>
             </div>
-
-
         </div>
 
         <footer id="footer">
@@ -434,8 +514,9 @@
         </footer>
     </main>
     <script>
-        function displayStars(rating) {
-            const starsContainer = document.getElementById("stars");
+        function displayStars(rating, elementId) {
+            const starsContainer = document.getElementById(elementId);
+            if (!starsContainer) return;
 
             for (let i = 0; i < 5; i++) {
                 const star = document.createElement("i");
@@ -450,8 +531,22 @@
             }
         }
 
-        let rating = {{ $mainProduct->rating }};
-        displayStars(rating);
+        document.addEventListener("DOMContentLoaded", function () {
+            displayStars({{ $mainProduct->rating }}, "stars");
+
+            @foreach ($reviews as $review)
+                displayStars({{ $review->rating }}, "stars-{{ $review->id }}");
+            @endforeach
+    });
+
+
+        function openReviewPopup() {
+            document.getElementById("reviewPopup").style.display = "block";
+        }
+
+        function closeReviewPopup() {
+            document.getElementById("reviewPopup").style.display = "none";
+        }
 
 
         $(document).ready(function () {
