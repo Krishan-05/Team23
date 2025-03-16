@@ -299,7 +299,6 @@
 
         .review-button {
             background-color: #007bff;
-            /* Blue color */
             color: white;
             border: none;
             padding: 10px 20px;
@@ -311,57 +310,61 @@
 
         .review-button:hover {
             background-color: #0056b3;
-            /* Darker blue on hover */
             transform: scale(1.05);
-            /* Slightly larger on hover */
         }
 
         /* css for pop up leave a review */
-        /* Modal Style */
         .modal {
             display: none;
-            /* Hidden by default */
             position: fixed;
             z-index: 1;
-            /* Stay on top */
             left: 0;
             top: 0;
             width: 100%;
-            /* Full width */
             height: 100%;
-            /* Full height */
             background-color: rgba(0, 0, 0, 0.5);
-            /* Black background with transparency */
         }
 
-        /* Modal Content */
         .modal-content {
             background-color: white;
             padding: 20px;
             margin: 15% auto;
             width: 80%;
-            /* Adjust size as needed */
             max-width: 500px;
+            border-radius: 15px;
+            position: relative;
         }
 
-        /* Close Button */
         .close {
             color: #aaa;
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
-            /* Make it clickable */
             position: absolute;
             top: 10px;
             right: 25px;
         }
 
-        /* Hover effect for close button */
         .close:hover,
         .close:focus {
             color: black;
             text-decoration: none;
             cursor: pointer;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: start;
+            gap: 10px;
+        }
+
+        .stars i {
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .stars i.filled {
+            color: gold;
         }
     </style>
 </head>
@@ -444,14 +447,14 @@
                                 required><br>
 
                             <label for="rating">Rating (1-5)</label>
-                            <div class="stars">
-                                <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
-                                <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
-                                <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
-                                <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
-                                <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+                            <div id="rating" class="stars">
+                                <i class="fa-regular fa-star" data-value="1"></i>
+                                <i class="fa-regular fa-star" data-value="2"></i>
+                                <i class="fa-regular fa-star" data-value="3"></i>
+                                <i class="fa-regular fa-star" data-value="4"></i>
+                                <i class="fa-regular fa-star" data-value="5"></i>
                             </div><br>
-
+                            <input type="hidden" name="rating" id="ratingValue" value="0">
                             <label for="comment">Your Review</label>
                             <textarea name="comment" id="comment" placeholder="Write your review here..." rows="4"
                                 required></textarea><br>
@@ -515,6 +518,8 @@
         </footer>
     </main>
     <script>
+
+        //display stars for customer reviews and product  js script
         function displayStars(rating, elementId) {
             const starsContainer = document.getElementById(elementId);
             if (!starsContainer) return;
@@ -540,16 +545,16 @@
             @endforeach
     });
 
-
+        //open review popup js script
         function openReviewPopup() {
             document.getElementById("reviewPopup").style.display = "block";
         }
-
+        //close review popup js script
         function closeReviewPopup() {
             document.getElementById("reviewPopup").style.display = "none";
         }
 
-
+        //add to basked js script
         $(document).ready(function () {
             $('.show-sub-products').click(function () {
                 const productId = $(this).data('id');
@@ -568,6 +573,33 @@
                 alert(`${quantity} x ${name} added to the basket!`);
             });
         });
+
+        // add review rating stars js script
+        document.addEventListener('DOMContentLoaded', function () {
+            const stars = document.querySelectorAll('.stars i');
+            const ratingValue = document.getElementById('ratingValue');
+
+            stars.forEach(star => {
+                star.addEventListener('click', function () {
+                    const rating = parseInt(this.getAttribute('data-value'));
+
+                    ratingValue.value = rating;
+
+                    stars.forEach(star => {
+                        if (parseInt(star.getAttribute('data-value')) <= rating) {
+                            star.classList.add('fa-solid', 'fa-star');
+                            star.classList.remove('fa-regular');
+                            star.style.color = 'gold';
+                        } else {
+                            star.classList.remove('fa-solid', 'fa-star');
+                            star.classList.add('fa-regular', 'fa-star');
+                            star.style.color = '';
+                        }
+                    });
+                });
+            });
+        });
+
     </script>
 
 </body>
