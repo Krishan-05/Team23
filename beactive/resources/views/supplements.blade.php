@@ -209,6 +209,8 @@
 
         .product a {
             margin-bottom: auto;
+            user-select: none;
+
         }
 
         /* Product Cards */
@@ -255,6 +257,7 @@
             transition: transform 0.3s ease, filter 0.3s ease;
             /* Smooth zoom effect */
             margin-bottom: auto;
+            user-select: none;
 
         }
 

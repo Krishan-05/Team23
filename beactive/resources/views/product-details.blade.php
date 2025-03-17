@@ -218,7 +218,7 @@
             /* Smooth zoom effect */
             margin-right: auto;
             border: 1px solid red;
-
+            user-select: none;
         }
 
         .product {
@@ -339,10 +339,12 @@
             color: #aaa;
             font-size: 28px;
             font-weight: bold;
-            cursor: pointer;
             position: absolute;
             top: 10px;
             right: 25px;
+            cursor: pointer;
+            user-select: none;
+
         }
 
         .close:hover,
@@ -356,6 +358,8 @@
             display: flex;
             justify-content: start;
             gap: 10px;
+            user-select: none;
+
         }
 
         .stars i {
@@ -549,6 +553,18 @@
         function openReviewPopup() {
             document.getElementById("reviewPopup").style.display = "block";
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const modal = document.getElementById("reviewPopup");
+            const modalContent = document.querySelector(".modal-content");
+
+            modal.addEventListener("click", function (event) {
+                if (event.target === modal) { // Only close when clicking on the background
+                    closeReviewPopup();
+                }
+            });
+        });
+
         //close review popup js script
         function closeReviewPopup() {
             document.getElementById("reviewPopup").style.display = "none";
