@@ -218,7 +218,7 @@
             /* Smooth zoom effect */
             margin-right: auto;
             border: 1px solid red;
-
+            user-select: none;
         }
 
         .product {
@@ -299,7 +299,6 @@
 
         .review-button {
             background-color: #007bff;
-            /* Blue color */
             color: white;
             border: none;
             padding: 10px 20px;
@@ -311,9 +310,65 @@
 
         .review-button:hover {
             background-color: #0056b3;
-            /* Darker blue on hover */
             transform: scale(1.05);
-            /* Slightly larger on hover */
+        }
+
+        /* css for pop up leave a review */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            margin: 15% auto;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            cursor: pointer;
+            user-select: none;
+
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: start;
+            gap: 10px;
+            user-select: none;
+
+        }
+
+        .stars i {
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .stars i.filled {
+            color: gold;
         }
     </style>
 </head>
@@ -369,17 +424,50 @@
                 @else
                     @foreach($reviews as $review)
                         <div class="review">
-                            <p><strong>{{ $review->customer_name }}</strong> ({{ $review->rating }}/5 ⭐)</p>
+                            <p><strong>{{ $review->customer_name }}</strong> -
+                            <p class="customer-rating" id="stars-{{ $review->id }}">Rating: </p>
+                            </p>
                             <p>{{ $review->comment }}</p>
+                            <p><em>Reviewed on: {{ \Carbon\Carbon::parse($review->created_at)->format('F j, Y \a\t H:i') }}</em>
+                            </p>
                             <hr>
                         </div>
-                        <button class="review-button">Leave a Review</button>
-
                     @endforeach
                 @endif
+                <button class="review-button" onclick="openReviewPopup()">Leave a Review</button>
+
+                <div id="reviewPopup" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeReviewPopup()">&times;</span>
+                        <h2>Submit Your Review</h2>
+
+                        <form action="{{ route('reviews.store') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $mainProduct->id }}">
+                            <!-- Dynamic Product ID -->
+
+                            <label for="customer_name">Your Name</label>
+                            <input type="text" name="customer_name" id="customer_name" placeholder="Your Name"
+                                required><br>
+
+                            <label for="rating">Rating (1-5)</label>
+                            <div id="rating" class="stars">
+                                <i class="fa-regular fa-star" data-value="1"></i>
+                                <i class="fa-regular fa-star" data-value="2"></i>
+                                <i class="fa-regular fa-star" data-value="3"></i>
+                                <i class="fa-regular fa-star" data-value="4"></i>
+                                <i class="fa-regular fa-star" data-value="5"></i>
+                            </div><br>
+                            <input type="hidden" name="rating" id="ratingValue" value="0">
+                            <label for="comment">Your Review</label>
+                            <textarea name="comment" id="comment" placeholder="Write your review here..." rows="4"
+                                required></textarea><br>
+
+                            <input type="submit" value="Submit Review">
+                        </form>
+                    </div>
+                </div>
             </div>
-
-
         </div>
 
         <footer id="footer">
@@ -434,8 +522,11 @@
         </footer>
     </main>
     <script>
-        function displayStars(rating) {
-            const starsContainer = document.getElementById("stars");
+
+        //display stars for customer reviews and product  js script
+        function displayStars(rating, elementId) {
+            const starsContainer = document.getElementById(elementId);
+            if (!starsContainer) return;
 
             for (let i = 0; i < 5; i++) {
                 const star = document.createElement("i");
@@ -450,10 +541,36 @@
             }
         }
 
-        let rating = {{ $mainProduct->rating }};
-        displayStars(rating);
+        document.addEventListener("DOMContentLoaded", function () {
+            displayStars({{ $mainProduct->rating }}, "stars");
 
+            @foreach ($reviews as $review)
+                displayStars({{ $review->rating }}, "stars-{{ $review->id }}");
+            @endforeach
+    });
 
+        //open review popup js script
+        function openReviewPopup() {
+            document.getElementById("reviewPopup").style.display = "block";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const modal = document.getElementById("reviewPopup");
+            const modalContent = document.querySelector(".modal-content");
+
+            modal.addEventListener("click", function (event) {
+                if (event.target === modal) { // Only close when clicking on the background
+                    closeReviewPopup();
+                }
+            });
+        });
+
+        //close review popup js script
+        function closeReviewPopup() {
+            document.getElementById("reviewPopup").style.display = "none";
+        }
+
+        //add to basked js script
         $(document).ready(function () {
             $('.show-sub-products').click(function () {
                 const productId = $(this).data('id');
@@ -472,6 +589,33 @@
                 alert(`${quantity} x ${name} added to the basket!`);
             });
         });
+
+        // add review rating stars js script
+        document.addEventListener('DOMContentLoaded', function () {
+            const stars = document.querySelectorAll('.stars i');
+            const ratingValue = document.getElementById('ratingValue');
+
+            stars.forEach(star => {
+                star.addEventListener('click', function () {
+                    const rating = parseInt(this.getAttribute('data-value'));
+
+                    ratingValue.value = rating;
+
+                    stars.forEach(star => {
+                        if (parseInt(star.getAttribute('data-value')) <= rating) {
+                            star.classList.add('fa-solid', 'fa-star');
+                            star.classList.remove('fa-regular');
+                            star.style.color = 'gold';
+                        } else {
+                            star.classList.remove('fa-solid', 'fa-star');
+                            star.classList.add('fa-regular', 'fa-star');
+                            star.style.color = '';
+                        }
+                    });
+                });
+            });
+        });
+
     </script>
 
 </body>

@@ -209,6 +209,8 @@
 
         .product a {
             margin-bottom: auto;
+            user-select: none;
+
         }
 
         /* Product Cards */
@@ -255,6 +257,7 @@
             transition: transform 0.3s ease, filter 0.3s ease;
             /* Smooth zoom effect */
             margin-bottom: auto;
+            user-select: none;
 
         }
 
@@ -357,18 +360,18 @@
                     <h3>Filter Products</h3>
 
                     <label for="price">Price Range:</label><br>
-                    <input type="checkbox" name="price_checkbox" value="all">All</input><br>
-                    <input type="checkbox" name="price_checkbox" value="under50">Under £50</input><br>
-                    <input type="checkbox" name="price_checkbox" value="5-10">£5 - £10</input><br>
-                    <input type="checkbox" name="price_checkbox" value="over10">Over £10</input><br>
+                    <input type="radio" name="price_radio" value="all">All</input><br>
+                    <input type="radio" name="price_radio" value="under50">Under £50</input><br>
+                    <input type="radio" name="price_radio" value="5-10">£5 - £10</input><br>
+                    <input type="radio" name="price_radio" value="over10">Over £10</input><br>
                     <br>
 
                     <label for="rating">Rating:</label><br>
-                    <input type="checkbox" name="rating_checkbox" value="all">All</input><br>
-                    <input type="checkbox" name="rating_checkbox" value="4">4★ & Up</input><br>
-                    <input type="checkbox" name="rating_checkbox" value="3">3★ & Up</input><br>
-                    <input type="checkbox" name="rating_checkbox" value="2">2★ & Up</input><br>
-                    <input type="checkbox" name="rating_checkbox" value="1">1★ & Up</input><br>
+                    <input type="radio" name="rating_radio" value="all">All</input><br>
+                    <input type="radio" name="rating_radio" value="4">4★ & Up</input><br>
+                    <input type="radio" name="rating_radio" value="3">3★ & Up</input><br>
+                    <input type="radio" name="rating_radio" value="2">2★ & Up</input><br>
+                    <input type="radio" name="rating_radio" value="1">1★ & Up</input><br>
                     <br>
 
                     <button id="apply-filter">Apply Filters</button>
@@ -482,11 +485,11 @@
                 var priceFilter = [];
                 var ratingFilter = [];
 
-                $('input[name="price_checkbox"]:checked').each(function () {
+                $('input[name="price_radio"]:checked').each(function () {
                     priceFilter.push($(this).val());
                 });
 
-                $('input[name="rating_checkbox"]:checked').each(function () {
+                $('input[name="rating_radio"]:checked').each(function () {
                     ratingFilter.push($(this).val());
                 });
 
