@@ -13,363 +13,230 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
-        .container {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-        }
+/* General Page Styling */
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: auto auto auto auto;
-            grid-template-rows: auto auto auto auto;
-            gap: 10px;
-            padding: 10px;
-        }
+/* Product Page Container */
+.product-container {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-        .grid-container div {
-            background-color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 20px;
-            border: 1px solid black;
-        }
+/* Product Image Section */
+.product img {
+    left:20px;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    width: 20%;
+    padding: 20px;
+    max-width: 1600px; /* Increase size but keep responsiveness */
+    max-height: 1600px; /* Limits excessive height */
+    border-radius: 10px;
+    display: block; /* Ensure proper centering */
+    margin: auto; /* Center in the container */
+}
 
+/* Product Details */
+.product-details {
+    flex: 1;
+    padding: 20px;
+}
 
-        #grid-title {
-            font-family: 'Space Grotesk', sans-serif;
-            /* Matches the chosen font */
-            font-size: 36px;
-            /* Larger font size for prominence */
-            font-weight: 700;
-            /* Bold for emphasis */
-            color: #007bff;
-            /* Eye-catching blue to match the theme */
-            text-align: center;
-            /* Center the title horizontally */
-            text-transform: uppercase;
-            /* Capitalize all letters for impact */
-            margin: 20px 0;
-            /* Add vertical spacing above and below */
-            letter-spacing: 2px;
-            /* Slight spacing for elegance */
-            background-color: #ffffff;
-            /* Subtle background for distinction */
-            padding: 15px;
-            /* Adds space around the title text */
-            border-radius: 12px;
-            /* Smooth rounded  */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            /* Subtle shadow for depth */
-        }
+.product-name {
+    font-size: 50px; /* Larger for emphasis */
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    letter-spacing: 1px; /* Adds subtle spacing for readability */
+    text-transform: capitalize; /* Ensures first letter is uppercase */
+    
+    position: absolute; /* Allows precise placement */
+    top: 200px; /* Positions it near the top */
+    right: 500px; /* Aligns it to the right */
+    
+    text-align: right; /* Ensures proper alignment */
+}
+.product-price {
+    font-size: 50px; /* Larger for emphasis */
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    letter-spacing: 1px; /* Adds subtle spacing for readability */
+    text-transform: capitalize; /* Ensures first letter is uppercase */
+    
+    position: absolute; /* Allows precise placement */
+    top: 300px; /* Positions it near the top */
+    right: 765px; /* Aligns it to the right */
+    
+    text-align: right; /* Ensures proper alignment */
+}
 
+/* Rating */
+.rating {
+    font-size: 18px;
+    color: #f1c40f;
+    margin-bottom: 10px;
+}
+.quantity-label {
 
-        #grid-filter {
-            grid-row-start: 2;
-            grid-row-end: 7;
-            /* change to 7 */
-            background: #ffffff;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: left;
-            margin-right: 50px;
-            height: auto;
-        }
+    position: absolute; /* For top-right positioning */
+    top: 490px;
+    right: 794px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #007bff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 
-        #grid-filter h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-align: center;
+}
 
-        }
+.product-rating {
+    position: absolute; /* Enables precise positioning */
+    top: 200px; /* Distance from the top */
+    right: 725px; /* Distance from the right */
 
-        #grid-filter label {
-            font-size: 14px;
-            font-weight: 600;
-            margin-top: 10px;
-        }
+    font-size: 20px; /* Slightly larger for better visibility */
+    font-weight: bold; /* Makes it stand out */
+    color: #007bff; /* Blue color */
+    text-transform: uppercase; /* Makes it more prominent */
+    letter-spacing: 1px; /* Enhances readability */
+    margin-bottom: 5px; /* Adds spacing */
+}
 
-        #grid-filter select {
-            width: 100%;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            margin-top: 5px;
-        }
+/* Description */
+.product-description {
+    position: absolute; /* Enables precise positioning */
+    top: 290px; /* Distance from the top */
+    right: 337px; /* Distance from the right */
 
-        #apply-filter {
-            margin-top: 15px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    font-size: 20px; /* Slightly larger for better visibility */
+    font-weight: bold; /* Makes it stand out */
+    color:rgb(62, 63, 64); /* Blue color */
+    text-transform: uppercase; /* Makes it more prominent */
+    letter-spacing: 1px; /* Enhances readability */
+    margin-bottom: 5px; /* Adds spacing */
+}
 
-        #apply-filter:hover {
-            background-color: #0056b3;
-        }
+/* Quantity Selector */
+.quantity-container {  
+position: absolute;
+right: 730px; /* Move it to the right side */
+top: 520px; /* Adjust spacing from top */
+display: flex;
+align-items: flex-end;
+justify-content: center;
+background-color:#f8f8f8; /* Light background */
+border-radius: 6px;
+overflow: hidden;
+width: 170px;
+border: 1px solid #f8f8f8; /*border */
+}
 
-        #grid-sort {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+/* Quantity Buttons */
+.quantity-btn {
+background-color:#007bff; /* Dark teal color */
+color: white;
+border: none;
+font-size: 35px;
+cursor: pointer;
+width: 80px;
+height: 60px;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: 0.3s ease;
+}
 
-            grid-column-start: 2;
-            grid-column-end: 4;
-            /* Spacious padding for comfort */
+.quantity-btn:hover {
+background-color: #022b31;
+}
 
-            background-color: #ffffff;
-            /* Clean white background */
-            border: none;
+/* Quantity Input */
+.quantity-input {
+    text-align: center;
+    width: 60px;
+    height: 40px; /* Make it square for better alignment */
+    background-color: #f8f8f8;
+    
+    font-weight: bold;
+    color: #007bff;
+    display: flex; /* Enables centering */
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+    border: 2px solid #007bff; /* Optional for improved appearance */
+    border-radius: 8px; /* Softens the corners */
+}
 
-            margin-bottom: 20px;
-            padding: 20px;
+.quantity-container input {
+    width: 50px;
+    text-align: center;
+    font-size: 30px;
+    padding: 5px;
+    border: 1px solid #f8f8f8;
+    border-radius: 5px;
+}
 
-        }
+/* Add to Basket Button */
+.add-to-basket {
+    display: block;
+    width: 25%;
+    background-color: #007bff;
+    color: white;
+    font-size: 22px;
+    position: absolute;
+    left: 1600px; /* Move it to the right side */
+    top: 600px; /* Adjust spacing from top */
+    align-items: flex-end;
+    padding: 12px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.3s;
+}
 
-        #sort-bar {
-            width: 100%;
-            /* Full width for responsiveness */
-            max-width: 400px;
-            /* Restrict maximum width */
-            padding: 12px 20px;
-            /* Spacious padding for comfort */
-            font-size: 16px;
-            /* Readable text size */
-            border: 1px solid #e6e6e6;
-            /* Subtle border matching product cards */
-            border-radius: 25px;
-            /* Fully rounded */
-            background-color: #ffffff;
-            /* Clean white background */
-            outline: none;
-            /* Remove default focus outline */
-            box-shadow: none;
-            /* Removes any shadow effect */
-            transition: border-color 0.3s ease;
-            /* Smooth transition for border color */
-        }
+.add-to-basket:hover{
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+    background-color:rgb(39, 96, 157); /* Soft gray background on hover */
+}
 
+/* Customer Reviews */
+.customer-reviews {
+    margin-top: 30px;
+}
 
-        #grid-search {
-            display: flex;
-            justify-content: center;
-            /* Center horizontally */
-            align-items: center;
-            /* Center vertically */
-            margin-bottom: 20px;
-            /* Add spacing */
-            background-color: transparent;
-            /* Remove any background color */
-            border: none;
-            /* Remove any border */
-            box-shadow: none;
-            /* Remove any shadow */
-        }
+.review-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
-        #searchBar {
-            width: 100%;
-            /* Full width for responsiveness */
-            max-width: 400px;
-            /* Restrict maximum width */
-            padding: 12px 20px;
-            /* Spacious padding for comfort */
-            font-size: 16px;
-            /* Readable text size */
-            border: 1px solid #e6e6e6;
-            /* Subtle border matching product cards */
-            border-radius: 25px;
-            /* Fully rounded */
-            background-color: #ffffff;
-            /* Clean white background */
-            outline: none;
-            /* Remove default focus outline */
-            box-shadow: none;
-            /* Removes any shadow effect */
-            transition: border-color 0.3s ease;
-            /* Smooth transition for border color */
-        }
+.leave-review {
+    display: block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: fit-content;
+    cursor: pointer;
+    transition: background 0.3s;
+}
 
-        #searchBar:focus {
-            border-color: #007bff;
-            /* Highlight border on focus */
-            box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2);
-            /* Optional shadow on focus */
-        }
+.leave-review:hover {
+    background-color: #007bff;
+}
 
-        #searchBar::placeholder {
-            color: #999999;
-            /* Subtle placeholder color */
-            font-style: italic;
-            /* Different style for placeholder */
-        }
-
-        .product img {
-            /* Ideal size for product images */
-            height: 100px;
-            width: auto;
-            /* Rounded edges for images */
-            transition: transform 0.3s ease, filter 0.3s ease;
-            /* Smooth zoom effect */
-            margin-right: auto;
-            border: 1px solid red;
-            user-select: none;
-        }
-
-        .product {
-            display: flex;
-            flex-direction: column;
-            background-color: #ffffff;
-            /* Clean white background */
-            padding: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-            /* Gentle shadow for depth */
-            margin: 15px;
-            /* Center products and add spacing */
-            padding: 20px;
-        }
-
-        .product p {
-            margin: 10px 0 5px;
-            font-size: 17px;
-            /* Perfect size for readability */
-            font-weight: 600;
-            /* Enhance visibility of product names */
-            color: #333333;
-            /* Dark text for strong contrast */
-
-            border: 1px solid pink;
-        }
-
-        .product-price {
-            font-size: 16px;
-            /* Adjust size for emphasis */
-            font-weight: 500;
-            /* Medium weight for hierarchy */
-            color: #007bff;
-            /* Attractive blue tone for pricing */
-            margin: 5px 0;
-
-            border: 1px solid blue;
-        }
-
-        .product-button,
-        .add-to-basket {
-            margin-top: 12px;
-            background-color: #007bff;
-            /* Brand primary color */
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            /* Fully rounded buttons for a modern feel */
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            /* Light shadow for better visibility */
-            border: 1px solid purple;
-
-        }
-
-        .product-button:hover,
-        .add-to-basket:hover {
-            background-color: #0056b3;
-            /* Slightly darker blue on hover */
-            transform: scale(1.05);
-            /* Scale up button slightly on hover */
-        }
-
-        .product-button:active,
-        .add-to-basket:active {
-            background-color: #004085;
-            /* Even darker blue for active state */
-            transform: scale(1);
-            /* Remove scale for pressed state */
-            box-shadow: none;
-            /* Remove shadow for pressed effect */
-        }
-
-        .review-button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .review-button:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-        }
-
-        /* css for pop up leave a review */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-content {
-            background-color: white;
-            padding: 20px;
-            margin: 15% auto;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 15px;
-            position: relative;
-        }
-
-        .close {
-            color: #aaa;
-            font-size: 28px;
-            font-weight: bold;
-            position: absolute;
-            top: 10px;
-            right: 25px;
-            cursor: pointer;
-            user-select: none;
-
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .stars {
-            display: flex;
-            justify-content: start;
-            gap: 10px;
-            user-select: none;
-
-        }
-
-        .stars i {
-            font-size: 2rem;
-            cursor: pointer;
-        }
-
-        .stars i.filled {
-            color: gold;
-        }
     </style>
 </head>
 
@@ -402,19 +269,26 @@
             <img src="{{ asset('images/' . strtolower(str_replace(' ', '-', $mainProduct->name)) . '.jpeg') }}"
                 alt="{{ $mainProduct->name }}" width="100">
             <!-- Product Name -->
-            <p>{{ $mainProduct->name }}</p>
+            <p class="product-name">{{ $mainProduct->name }}</p>
             <!-- Product Price -->
             <p class="product-price">£{{ $mainProduct->price }}</p>
             <!-- Product Rating -->
             <p class="product-rating" id="stars">Rating: </p>
             <!-- Product Description -->
-            <p>{{ $mainProduct->description }}</p>
+            <p class ="product-description">{{ $mainProduct->description }}</p>
             <!-- Add to Basket Button -->
-            <label for="quantity-{{ $mainProduct->id }}" style="padding-bottom: 10px;">Quantity:</label>
-            <input type="number" id="quantity-{{ $mainProduct->id }}" data-id="{{ $mainProduct->id }}"
-                data-name="{{ $mainProduct->name }}" data-price="{{ $mainProduct->price }}"
-                data-rating="={{ $mainProduct->rating }}" class="quantity-input" min="1" max="100" value="1">
-            <button class="add-to-basket" data-id="{{ $mainProduct->id }} ">Add to Basket</button>
+            <label for="quantity-{{ $mainProduct->id }}"class="quantity-label" style="padding-bottom: 10px;">Quantity:</label>
+            <div class="quantity-container">
+                <button type="button" class="quantity-btn minus" data-id="{{ $mainProduct->id }}">-</button>
+                <input type="text" id="quantity-{{ $mainProduct->id }}" class="quantity-input" 
+                    data-id="{{ $mainProduct->id }}" data-name="{{ $mainProduct->name }}" 
+                    data-price="{{ $mainProduct->price }}" data-rating="{{ $mainProduct->rating }}" 
+                     value="1" readonly>
+                <button type="button" class="quantity-btn plus" data-id="{{ $mainProduct->id }}">+</button>
+            </div>
+<button class="add-to-basket" data-id="{{ $mainProduct->id }}">Add To Basket</button>
+
+
 
             <div class="reviews-section">
                 <h3>Customer Reviews</h3>
@@ -610,11 +484,35 @@
                             star.classList.remove('fa-solid', 'fa-star');
                             star.classList.add('fa-regular', 'fa-star');
                             star.style.color = '';
+
+
                         }
                     });
                 });
             });
         });
+            // 🔹 Quantity Selector Script (NEW)
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".quantity-container").forEach(container => {
+            const minusBtn = container.querySelector(".minus");
+            const plusBtn = container.querySelector(".plus");
+            const quantityInput = container.querySelector(".quantity-input");
+
+            minusBtn.addEventListener("click", function () {
+                let value = parseInt(quantityInput.value);
+                if (value > 1) {
+                    quantityInput.value = value - 1;
+                }
+            });
+
+            plusBtn.addEventListener("click", function () {
+                let value = parseInt(quantityInput.value);
+                if (value < 100) { // Adjust max limit if needed
+                    quantityInput.value = value + 1;
+                }
+            });
+        });
+    });
 
     </script>
 
