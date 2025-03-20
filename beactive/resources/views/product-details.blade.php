@@ -82,10 +82,36 @@ body {
 }
 
 /* Rating */
-.rating {
-    font-size: 18px;
-    color: #f1c40f;
-    margin-bottom: 10px;
+.star-rating {
+    font-size: 20px;
+    color: #007bff;
+    font-weight: 700;
+    background-color: #e6f0ff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 2px solid #007bff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-left: 10px; 
+    text-align:center;
+}
+.stars {
+    font-size: 28px;
+    text-align: center;
+    color: #007bff; 
+    background-color: #e6f0ff;
+    padding: 8px 15px;
+    border-radius: 30px; 
+    text-shadow: 2px 2px 6px rgba(0, 123, 255, 0.4);
+    letter-spacing: 3px;
+    display: inline-block; 
+    font-weight: 800;
+    border: 3px solid #007bff;
+
+    /* Centering the element itself */
+    display: block;
+    margin: 0 auto;
 }
 .quantity-label {
 
@@ -215,12 +241,125 @@ background-color: #022b31;
     margin-top: 30px;
 }
 
-.review-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
+.review-name-text {
+    width: 100%; 
+    max-width: 400px; 
+    padding: 10px 15px; 
+    font-size: 18px;
+    color: #007bff;
+    background-color: #f0f8ff; 
+    border: 2px solid #007bff; 
+    border-radius: 8px; 
+    outline: none; 
+    box-shadow: 0 3px 6px rgba(0, 123, 255, 0.2); 
+    transition: border 0.3s, box-shadow 0.3s; 
+    display: block; 
+    margin: 0 auto; /* Centers the text box */
+    text-align: center; /* Centers text inside the box */
+}
+.review-textbox {
+    width: 100%;
+    max-width: 500px; 
+    height: 150px; 
+    padding: 15px 20px; 
+    font-size: 20px; 
+    color: #007bff;
+    background-color: #f0f8ff;
+    border: 3px solid #007bff; 
+    border-radius: 10px; 
+    outline: none;
+    box-shadow: 0 3px 8px rgba(0, 123, 255, 0.2);
+    transition: border 0.3s, box-shadow 0.3s;
+    display: block;
+    margin: 0 auto;
+    text-align: center; 
+    resize: none; /* Prevents resizing for a cleaner layout */
 }
 
+.review-textbox:focus {
+    border: 3px solid #0056b3; 
+    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.4);
+}
+.review-name-text:focus {
+    border: 2px solid #0056b3; 
+    box-shadow: 0 4px 10px rgba(0, 86, 179, 0.4); 
+}
+.reviews-section{
+    background-color:#eeeee4;
+}
+.review-title {
+    font-size: 32px; 
+    font-weight: bold;
+    color: #007bff; 
+    background-color: #e6f0ff; 
+    padding: 10px 20px; 
+    border-radius: 30px; 
+    text-align: center;
+    width: fit-content; 
+    margin: 0 auto 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 3px solid #007bff;
+    text-transform: uppercase;
+    letter-spacing: 2px; 
+}
+.review-button{
+    display: block;
+    width: 25%;
+    background-color: #007bff;
+    color: white;
+    font-size: 22px;
+    align-items: flex-end;
+    padding: 12px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.3s;
+}
+.submit-review {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 12px 30px;
+    border: 3px solid #007bff;
+    border-radius: 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin: 20px auto; /* Centers the button */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+}
+
+.submit-review:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 15px rgba(0, 86, 179, 0.6);
+    transform: scale(1.05); /* Slight zoom effect for interactivity */
+}
+
+.submit-review:active {
+    background-color: #004494;
+    transform: scale(0.98); /* Subtle press effect */
+}
+.review-submit {
+    font-size: 18px;
+    color: #007bff;
+    background-color: #e6f0ff;
+    padding: 12px 20px;
+    border-left: 5px solid #007bff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+.review-button:hover{
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+    background-color:rgb(39, 96, 157); /* Soft gray background on hover */
+}
 .leave-review {
     display: block;
     background-color: #007bff;
@@ -236,6 +375,7 @@ background-color: #022b31;
 .leave-review:hover {
     background-color: #007bff;
 }
+
 
     </style>
 </head>
@@ -291,7 +431,7 @@ background-color: #022b31;
 
 
             <div class="reviews-section">
-                <h3>Customer Reviews</h3>
+                <h3 class = review-title>Customer Reviews</h3>
 
                 @if($reviews->isEmpty())
                     <p>No reviews yet. Be the first to review this product!</p>
@@ -313,18 +453,18 @@ background-color: #022b31;
                 <div id="reviewPopup" class="modal">
                     <div class="modal-content">
                         <span class="close" onclick="closeReviewPopup()">&times;</span>
-                        <h2>Submit Your Review</h2>
+                        <h2 class = "review-submit">Submit A Review</h2>
 
                         <form action="{{ route('reviews.store') }}" method="POST">
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $mainProduct->id }}">
                             <!-- Dynamic Product ID -->
 
-                            <label for="customer_name">Your Name</label>
-                            <input type="text" name="customer_name" id="customer_name" placeholder="Your Name"
+                            
+                            <input type="text" class="review-name-text"name="customer_name" id="customer_name" placeholder=" Name"
                                 required><br>
 
-                            <label for="rating">Rating (1-5)</label>
+                            <label for="rating"class = "star-rating">Rating (1-5)</label>
                             <div id="rating" class="stars">
                                 <i class="fa-regular fa-star" data-value="1"></i>
                                 <i class="fa-regular fa-star" data-value="2"></i>
@@ -333,11 +473,10 @@ background-color: #022b31;
                                 <i class="fa-regular fa-star" data-value="5"></i>
                             </div><br>
                             <input type="hidden" name="rating" id="ratingValue" value="0">
-                            <label for="comment">Your Review</label>
-                            <textarea name="comment" id="comment" placeholder="Write your review here..." rows="4"
+                            <textarea name="comment"class = "review-textbox" id="comment" placeholder="Write your review here..." rows="4"
                                 required></textarea><br>
 
-                            <input type="submit" value="Submit Review">
+                            <input type="submit" class ="submit-review"value="Submit Review">
                         </form>
                     </div>
                 </div>
