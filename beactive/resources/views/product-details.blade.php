@@ -316,66 +316,268 @@ background-color: #022b31;
     text-align: center;
     transition: background 0.3s;
 }
-.submit-review {
-    background-color: #007bff;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 700;
-    padding: 12px 30px;
-    border: 3px solid #007bff;
-    border-radius: 30px;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: block;
-    margin: 20px auto; /* Centers the button */
-    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
-    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
-}
 
-.submit-review:hover {
-    background-color: #0056b3;
-    box-shadow: 0 6px 15px rgba(0, 86, 179, 0.6);
-    transform: scale(1.05); /* Slight zoom effect for interactivity */
-}
+.modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
 
-.submit-review:active {
-    background-color: #004494;
-    transform: scale(0.98); /* Subtle press effect */
-}
-.review-submit {
-    font-size: 18px;
-    color: #007bff;
-    background-color: #e6f0ff;
-    padding: 12px 20px;
-    border-left: 5px solid #007bff;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
-    text-align: center;
-    margin-top: 15px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-.review-button:hover{
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
-    background-color:rgb(39, 96, 157); /* Soft gray background on hover */
-}
-.leave-review {
-    display: block;
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    width: fit-content;
-    cursor: pointer;
-    transition: background 0.3s;
-}
+        .modal-content {
+            background: #ffffff;
+            padding: 40px 30px;
+            margin: 5% auto;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            animation: fadeInUp 0.4s ease;
+        }
 
-.leave-review:hover {
-    background-color: #007bff;
-}
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
 
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-content h2 {
+            font-size: 2.2em;
+            color: #100E39;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .modal-content label {
+            align-self: flex-start;
+            margin-left: 5%;
+            font-weight: 600;
+            color: #333333;
+        }
+
+        .modal-content input[type="text"],
+        .modal-content textarea {
+            width: 90%;
+            max-width: 400px;
+            padding: 12px 15px;
+            font-size: 1em;
+            border: 2px solid #100E39;
+            border-radius: 8px;
+            outline: none;
+            background-color: #fafafa;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .modal-content input[type="text"]:focus,
+        .modal-content textarea:focus {
+            border-color: #FF5B00;
+            box-shadow: 0 0 5px rgba(255, 91, 0, 0.3);
+        }
+
+        .modal-content textarea {
+            resize: none;
+            min-height: 100px;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0 20px 0;
+        }
+
+        .stars i {
+            font-size: 2rem;
+            color: #FFD700;
+            margin: 0 5px;
+        }
+
+
+        .stars i.selected {
+            color: #FFD700;
+            transform: scale(1.1);
+        }
+... (56 lines left)
+Collapse
+message.txt
+5 KB
+﻿
+.modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background: #ffffff;
+            padding: 40px 30px;
+            margin: 5% auto;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-content h2 {
+            font-size: 2.2em;
+            color: #100E39;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .modal-content label {
+            align-self: flex-start;
+            margin-left: 5%;
+            font-weight: 600;
+            color: #333333;
+        }
+
+        .modal-content input[type="text"],
+        .modal-content textarea {
+            width: 90%;
+            max-width: 400px;
+            padding: 12px 15px;
+            font-size: 1em;
+            border: 2px solid #100E39;
+            border-radius: 8px;
+            outline: none;
+            background-color: #fafafa;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .modal-content input[type="text"]:focus,
+        .modal-content textarea:focus {
+            border-color: #FF5B00;
+            box-shadow: 0 0 5px rgba(255, 91, 0, 0.3);
+        }
+
+        .modal-content textarea {
+            resize: none;
+            min-height: 100px;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0 20px 0;
+        }
+
+        .stars i {
+            font-size: 2rem;
+            color: #FFD700;
+            margin: 0 5px;
+        }
+
+
+        .stars i.selected {
+            color: #FFD700;
+            transform: scale(1.1);
+        }
+
+        .stars i:hover {
+            color: #FFD700;
+        }
+
+        .modal-content input[type="submit"] {
+            width: 90%;
+            max-width: 400px;
+            padding: 15px;
+            background: linear-gradient(135deg, #FF5B00, #cc4800);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 91, 0, 0.4);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .modal-content input[type="submit"]:hover {
+            background: linear-gradient(135deg, #cc4800, #FF5B00);
+            box-shadow: 0 6px 20px rgba(255, 91, 0, 0.6);
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #100E39;
+        }
+
+        @media (max-width: 768px) {
+            .reviews-section {
+                padding: 30px 20px;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 30px;
+            }
+
+            .modal-content h2 {
+                font-size: 2em;
+            }
+        }
 
     </style>
 </head>
@@ -536,100 +738,99 @@ background-color: #022b31;
     </main>
     <script>
 
-        //display stars for customer reviews and product  js script
-        function displayStars(rating, elementId) {
-            const starsContainer = document.getElementById(elementId);
-            if (!starsContainer) return;
+//display stars for customer reviews and product  js script
+function displayStars(rating, elementId) {
+    const starsContainer = document.getElementById(elementId);
+    if (!starsContainer) return;
 
-            for (let i = 0; i < 5; i++) {
-                const star = document.createElement("i");
+    for (let i = 0; i < 5; i++) {
+        const star = document.createElement("i");
 
-                if (i < rating) {
-                    star.classList.add("fa-solid", "fa-star");
-                } else {
-                    star.classList.add("fa-regular", "fa-star");
-                }
-
-                starsContainer.appendChild(star);
-            }
+        if (i < rating) {
+            star.classList.add("fa-solid", "fa-star");
+        } else {
+            star.classList.add("fa-regular", "fa-star");
         }
 
-        document.addEventListener("DOMContentLoaded", function () {
-            displayStars({{ $mainProduct->rating }}, "stars");
+        starsContainer.appendChild(star);
+    }
+}
 
-            @foreach ($reviews as $review)
-                displayStars({{ $review->rating }}, "stars-{{ $review->id }}");
-            @endforeach
+document.addEventListener("DOMContentLoaded", function () {
+    displayStars({{ $mainProduct->rating }}, "stars");
+
+    @foreach ($reviews as $review)
+        displayStars({{ $review->rating }}, "stars-{{ $review->id }}");
+    @endforeach
+});
+
+//open review popup js script
+function openReviewPopup() {
+    document.getElementById("reviewPopup").style.display = "block";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("reviewPopup");
+    const modalContent = document.querySelector(".modal-content");
+
+    modal.addEventListener("click", function (event) {
+        if (event.target === modal) { // Only close when clicking on the background
+            closeReviewPopup();
+        }
     });
+});
 
-        //open review popup js script
-        function openReviewPopup() {
-            document.getElementById("reviewPopup").style.display = "block";
-        }
+//close review popup js script
+function closeReviewPopup() {
+    document.getElementById("reviewPopup").style.display = "none";
+}
 
-        document.addEventListener("DOMContentLoaded", function () {
-            const modal = document.getElementById("reviewPopup");
-            const modalContent = document.querySelector(".modal-content");
+//add to basked js script
+$(document).ready(function () {
+    $('.show-sub-products').click(function () {
+        const productId = $(this).data('id');
+        $(`#sub-products-${productId}`).toggle();
+    });
+    $('.add-to-basket').click(function () {
+        const subProductId = $(this).data('id');
+        const quantity = $(`#quantity-${subProductId}`).val();
+        const name = $(`#quantity-${subProductId}`).data('name');
+        const price = $(`#quantity-${subProductId}`).data('price');
 
-            modal.addEventListener("click", function (event) {
-                if (event.target === modal) { // Only close when clicking on the background
-                    closeReviewPopup();
-                }
-            });
-        });
+        const basketItems = JSON.parse(localStorage.getItem('basket')) || [];
+        basketItems.push({ id: subProductId, name, price, quantity });
+        localStorage.setItem('basket', JSON.stringify(basketItems));
 
-        //close review popup js script
-        function closeReviewPopup() {
-            document.getElementById("reviewPopup").style.display = "none";
-        }
+        alert(`${quantity} x ${name} added to the basket!`);
+    });
+});
 
-        //add to basked js script
-        $(document).ready(function () {
-            $('.show-sub-products').click(function () {
-                const productId = $(this).data('id');
-                $(`#sub-products-${productId}`).toggle();
-            });
-            $('.add-to-basket').click(function () {
-                const subProductId = $(this).data('id');
-                const quantity = $(`#quantity-${subProductId}`).val();
-                const name = $(`#quantity-${subProductId}`).data('name');
-                const price = $(`#quantity-${subProductId}`).data('price');
+// add review rating stars js script
+document.addEventListener('DOMContentLoaded', function () {
+    const stars = document.querySelectorAll('.stars i');
+    const ratingValue = document.getElementById('ratingValue');
 
-                const basketItems = JSON.parse(localStorage.getItem('basket')) || [];
-                basketItems.push({ id: subProductId, name, price, quantity });
-                localStorage.setItem('basket', JSON.stringify(basketItems));
+    stars.forEach(star => {
+        star.addEventListener('click', function () {
+            const rating = parseInt(this.getAttribute('data-value'));
 
-                alert(`${quantity} x ${name} added to the basket!`);
-            });
-        });
-
-        // add review rating stars js script
-        document.addEventListener('DOMContentLoaded', function () {
-            const stars = document.querySelectorAll('.stars i');
-            const ratingValue = document.getElementById('ratingValue');
+            ratingValue.value = rating;
 
             stars.forEach(star => {
-                star.addEventListener('click', function () {
-                    const rating = parseInt(this.getAttribute('data-value'));
-
-                    ratingValue.value = rating;
-
-                    stars.forEach(star => {
-                        if (parseInt(star.getAttribute('data-value')) <= rating) {
-                            star.classList.add('fa-solid', 'fa-star');
-                            star.classList.remove('fa-regular');
-                            star.style.color = 'gold';
-                        } else {
-                            star.classList.remove('fa-solid', 'fa-star');
-                            star.classList.add('fa-regular', 'fa-star');
-                            star.style.color = '';
-
-
-                        }
-                    });
-                });
+                if (parseInt(star.getAttribute('data-value')) <= rating) {
+                    star.classList.add('fa-solid', 'fa-star');
+                    star.classList.remove('fa-regular');
+                    star.style.color = 'gold';
+                } else {
+                    star.classList.remove('fa-solid', 'fa-star');
+                    star.classList.add('fa-regular', 'fa-star');
+                    star.style.color = '';
+                }
             });
         });
+    });
+});
+
             // 🔹 Quantity Selector Script (NEW)
     document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".quantity-container").forEach(container => {
