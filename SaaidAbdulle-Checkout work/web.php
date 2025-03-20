@@ -78,4 +78,3 @@ Route::post('/theme/toggle', function () {
     session(['theme' => $theme]);
     return response()->json(['success' => true]);
 })->name('theme.toggle');
-Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');

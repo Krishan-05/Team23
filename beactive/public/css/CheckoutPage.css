@@ -1,131 +1,311 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
 }
 
 .container {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .header {
-    background-color:#100E39;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    position: relative;
+  background-color: #100E39;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .main {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  padding: 20px 0;
+}
+
+nav.navbar {
+  background-color: #100E39;
+}
+
+nav.navbar a {
+  background-color: transparent;
+  color: white;
+  text-decoration: underline;
+  padding: 10px 15px;
+}
+
+nav ul {
+  display: flex;
+  background-color: transparent;
+}
+
+nav ul li {
+  position: relative;
+  margin-right: 50px;
+  list-style: none;
+  background-color: transparent;
+}
+
+.payment-method-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .payment-info {
-    width: 60%;
-    margin-left: 10px;
-    padding: 30px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  margin-left: 10px;
+  padding: 30px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .payment-info h2 {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .payment-info form label {
-    display: block;
-    margin: 0.5rem 0 0.2rem;
+  display: block;
+  margin: 0.5rem 0 0.2rem;
 }
 
 .payment-info form input {
-    width: 95%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  width: 95%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .payment-info .checkbox {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .payment-info .checkbox input {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.payment-info .radio-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.payment-info .radio-group input {
+  margin: 0;
 }
 
 .cart-info {
-    flex: 1;
-    margin-right: 10px;
-    background: #e9f0ff;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  margin-right: 10px;
+  background: #e9f0ff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .cart-info h2 {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .cart-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 .cart-item img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
 }
 
 .cart-item p {
-    margin: 0;
+  margin: 0;
 }
 
 .summary {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .summary p {
-    margin: 0.5rem 0;
+  margin: 0.5rem 0;
 }
 
 .pay-now {
-    width: 100%;
-    padding: 1rem;
-    background: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
+  width: 100%;
+  padding: 1rem;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 .footer {
-    background-color: #100E39;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 0;
+  background-color: #6C6C84;
+  text-align: center;
+  display: block;
+}
+
+.footer hr {
+  margin: 0;
+  width: 100%;
+  border: none;
+  border-top: 1px solid white;
 }
 
 .footer a {
-    color: white;
-    text-decoration: none;
+  color: #000;
+  text-decoration: none;
 }
 
 .footer a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+#paypal-button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#paypal-button-container button {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+html[data-theme='dark'] {
+  background-color: #181818;
+  color: #fff;
+}
+
+html[data-theme='dark'] .container,
+html[data-theme='dark'] .wrapper,
+html[data-theme='dark'] .content,
+html[data-theme='dark'] .checkout-box,
+html[data-theme='dark'] .cart-box {
+  background-color: #1c1c1c !important;
+  color: #fff !important;
+  border-color: #333 !important;
+}
+
+html[data-theme='dark'] .header,
+html[data-theme='dark'] #main-header {
+  background-color: #000;
+  color: #fff;
+}
+
+html[data-theme='dark'] .main {
+  background-color: #1c1c1c;
+}
+
+html[data-theme='dark'] nav.navbar {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+html[data-theme='dark'] nav.navbar a {
+  background-color: transparent;
+  color: #fff;
+}
+
+html[data-theme='dark'] nav ul,
+html[data-theme='dark'] nav ul li {
+  background-color: #000;
+}
+
+html[data-theme='dark'] .payment-info {
+  background: #222;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+html[data-theme='dark'] .payment-info form input {
+  background: #444;
+  border: 1px solid #666;
+  color: #fff;
+}
+
+html[data-theme='dark'] .cart-info {
+  background: #222;
+  color: #fff;
+}
+
+html[data-theme='dark'] .pay-now {
+  background: #236e45;
+}
+
+html[data-theme='dark'] .footer {
+  background-color: #000 !important;
+  color: #fff;
+}
+
+html[data-theme='dark'] .footer a {
+  color: #fff;
+}
+
+html[data-theme='dark'] #paypal-button-container button {
+  background-color: #0070ba;
+}
+
+html[data-theme='dark'] input,
+html[data-theme='dark'] textarea {
+  background-color: #252525 !important;
+  color: #fff !important;
+  border: 1px solid #444 !important;
+}
+
+html[data-theme='dark'] #dark-mode-toggle {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+}
+
+html[data-theme='dark'] .socialimages img {
+  filter: invert(100%) brightness(200%);
+}
+
+#dark-mode-toggle {
+  display: block;
+  margin: 0 auto;
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#payment_method_select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #000;
+}
+
+html[data-theme='dark'] #payment_method_select {
+  background-color: #252525;
+  color: #fff;
+  border: 1px solid #444;
 }

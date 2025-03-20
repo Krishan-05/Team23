@@ -192,3 +192,7 @@ body,html{
     padding-bottom: 30px;
 
 }
+.logo {
+    width: 100px; /* Adjust this value as needed */
+    height: auto; /* This maintains the aspect ratio */
+}

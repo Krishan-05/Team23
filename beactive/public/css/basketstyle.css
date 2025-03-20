@@ -3,51 +3,49 @@ body {
     background-color: #f9f9f9;
     margin: 0;
     padding: 0;
-}
-
-.basket-container{
-    padding-left: 10px;
-    padding-right:10px;
+  }
+  
+  .basket-container {
+    padding: 0 10px;
     text-align: center;
-
-}
-
-h1 {
+  }
+  
+  h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: #100E39; 
-}
-
-#basket-items {
+    color: #100E39;
+  }
+  
+  #basket-items {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.basket-item {
+  }
+  
+  .basket-item {
     background: #fff;
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-#total-price {
+  }
+  
+  #total-price {
     margin-top: 20px;
     text-align: center;
     font-size: 20px;
     font-weight: bold;
-    color: #100E39; 
-}
-
-.basket-actions {
+    color: #100E39;
+  }
+  
+  .basket-actions {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-}
-
-.action-btn {
-    background-color: #100E39; 
+  }
+  
+  .action-btn {
+    background-color: #100E39;
     color: white;
     padding: 12px 20px;
     font-size: 16px;
@@ -57,24 +55,68 @@ h1 {
     text-align: center;
     border-radius: 5px;
     transition: background-color 0.3s;
-}
-
-.action-btn:hover {
-    background-color: #0056b3; 
-}
-
-#clear-basket {
-    background-color: #dc3545; 
-}
-
-#clear-basket:hover {
-    background-color: #c82333; 
-}
-
-#checkout {
-    background-color: #28a745; 
-}
-
-#checkout:hover {
-    background-color: #218838; 
-}
+  }
+  
+  .action-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  #clear-basket {
+    background-color: #dc3545;
+  }
+  
+  #clear-basket:hover {
+    background-color: #c82333;
+  }
+  
+  #checkout {
+    background-color: #28a745;
+  }
+  
+  #checkout:hover {
+    background-color: #218838;
+  }
+  
+  html[data-theme="dark"] body {
+    background-color: #181818;
+    color: #f5f5f5;
+  }
+  
+  html[data-theme="dark"] h1 {
+    color: #ffffff;
+  }
+  
+  html[data-theme="dark"] .basket-item {
+    background: #222;
+    border-color: #444;
+    color: #f5f5f5;
+  }
+  
+  html[data-theme="dark"] #total-price {
+    color: #ffffff;
+  }
+  
+  html[data-theme="dark"] .action-btn {
+    background-color: #333;
+  }
+  
+  html[data-theme="dark"] #clear-basket {
+    background-color: #dc3545;
+  }
+  
+  html[data-theme="dark"] #clear-basket:hover {
+    background-color: #c82333;
+  }
+  
+  html[data-theme="dark"] #checkout {
+    background-color: #28a745;
+  }
+  
+  html[data-theme="dark"] #checkout:hover {
+    background-color: #218838;
+  }
+  
+  html[data-theme="dark"] #main-header {
+    background-color: #1c1c1c;
+  }
+  
