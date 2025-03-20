@@ -37,15 +37,14 @@ body {
 /* Product Image Section */
 .product img {
     left:20px;
-    justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
-    width: 20%;
+    width: 25%;
     padding: 20px;
     max-width: 1600px; /* Increase size but keep responsiveness */
     max-height: 1600px; /* Limits excessive height */
     border-radius: 10px;
     display: block; /* Ensure proper centering */
-    margin: auto; /* Center in the container */
+    margin-left:0px; /* Center in the container */
 }
 
 /* Product Details */
@@ -417,11 +416,6 @@ background-color: #022b31;
             color: #FFD700;
             transform: scale(1.1);
         }
-... (56 lines left)
-Collapse
-message.txt
-5 KB
-﻿
 .modal {
             display: none;
             position: fixed;
