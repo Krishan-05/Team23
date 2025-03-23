@@ -59,16 +59,16 @@ body {
 }
 
 .product-name {
-    font-size: 2rem; /* Larger for emphasis */
+    font-size: 2rem;
     margin-bottom: 1rem;
     font-weight: bold;
     color: rgb(0, 0, 0);
-    letter-spacing: 1px; /* Adds subtle spacing for readability */
-    text-transform: capitalize; /* Ensures first letter is uppercase */
+    letter-spacing: 1px; 
+    text-transform: capitalize; 
     
-    position: absolute; /* Allows precise placement */
-    top: 7rem; /* Positions it near the top */
-    right: 28rem; /* Aligns it to the right */
+    position: absolute;
+    top: 7rem; 
+    right: 28rem;
     
     text-align: left; /* Ensures proper alignment */
 }
@@ -246,10 +246,16 @@ background-color: #022b31;
 
 /* Customer Reviews */
 
-
-.reviews-section{
+.reviews-section {
+    width: 100%;
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 10px 30px;
     background-color:#eeeee4;
-    margin-top:140px
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    font-family: 'Poppins', sans-serif;
+    margin-top:  200px;
 }
 .review-title {
     font-size: 32px; 
@@ -266,23 +272,78 @@ background-color: #022b31;
     text-transform: uppercase;
     letter-spacing: 2px;
     position: relative;
-    top: 30px;
 
 }
-.review-button{
-    display: block;
-    width: 25%;
-    background-color: #007bff;
-    color: white;
-    font-size: 22px;
-    align-items: flex-end;
-    padding: 12px;
+
+
+.reviews-section p {
+    color: #333333;
+    line-height: 1.6;
+}
+
+.review {
+    background: #fafafa;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.review strong {
+    font-size: 1.1em;
+    color: #100E39;
+}
+
+.customer-rating {
+    color: #FF5B00;
+    font-weight: 600;
+    margin: 8px 0;
+}
+
+.customer-rating i {
+    color: #FFD700;
+}
+
+.review em {
+    font-size: 0.9em;
+    color: #777777;
+}
+
+.review hr {
+    border: none;
+    height: 1px;
+    background: #eee;
+    margin-top: 20px;
+}
+
+/* Leave Review Button */
+.review-button {
+    display: inline-block;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #FF5B00, #cc4800);
+    color: #ffffff;
     border: none;
     border-radius: 50px;
+    font-size: 1em;
+    font-weight: bold;
+    letter-spacing: 1px;
     cursor: pointer;
-    text-align: center;
-    transition: background 0.3s;
-    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(255, 91, 0, 0.4);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 30px;
+}
+
+.review-button:hover {
+    background: linear-gradient(135deg, #cc4800, #FF5B00);
+    box-shadow: 0 6px 20px rgba(255, 91, 0, 0.6);
 }
 
 .modal {
@@ -297,18 +358,7 @@ background-color: #022b31;
             backdrop-filter: blur(4px);
         }
 
-        .modal-content {
-            background: #ffffff;
-            padding: 40px 30px;
-            margin: 5% auto;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            font-family: 'Poppins', sans-serif;
-            position: relative;
-            animation: fadeInUp 0.4s ease;
-        }
+
 
         @keyframes fadeInUp {
             from {
@@ -367,47 +417,19 @@ background-color: #022b31;
             min-height: 100px;
         }
 
-        .stars {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 10px 0 20px 0;
-        }
-
-        .stars i {
-            font-size: 2rem;
-            color: #FFD700;
-            margin: 0 5px;
-        }
-
-
-        .stars i.selected {
-            color: #FFD700;
-            transform: scale(1.1);
-        }
-.modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(4px);
-        }
 
         .modal-content {
             background: #ffffff;
             padding: 40px 30px;
             margin: 5% auto;
-            width: 90%;
+            width: 40%;
             max-width: 500px;
             border-radius: 12px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             font-family: 'Poppins', sans-serif;
             position: relative;
             animation: fadeInUp 0.4s ease;
+            bottom: 24%;
         }
 
         @keyframes fadeInUp {
