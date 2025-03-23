@@ -21,17 +21,20 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
+    
 }
 
 /* Product Page Container */
 .product-container {
     display: flex;
-    max-width: 1200px;
+    max-width: 90vw;
+    flex-direction: column;
     margin: auto;
     background: #fff;
-    padding: 20px;
+    padding: 2vw;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
 /* Product Image Section */
@@ -44,38 +47,42 @@ body {
     max-height: 1600px; /* Limits excessive height */
     border-radius: 10px;
     display: block; /* Ensure proper centering */
-    margin-left:0px; /* Center in the container */
+     /* Center in the container */
 }
 
 /* Product Details */
 .product-details {
     flex: 1;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-name {
-    font-size: 50px; /* Larger for emphasis */
+    font-size: 2rem; /* Larger for emphasis */
+    margin-bottom: 1rem;
     font-weight: bold;
     color: rgb(0, 0, 0);
     letter-spacing: 1px; /* Adds subtle spacing for readability */
     text-transform: capitalize; /* Ensures first letter is uppercase */
     
     position: absolute; /* Allows precise placement */
-    top: 200px; /* Positions it near the top */
-    right: 500px; /* Aligns it to the right */
+    top: 7rem; /* Positions it near the top */
+    right: 28rem; /* Aligns it to the right */
     
-    text-align: right; /* Ensures proper alignment */
+    text-align: left; /* Ensures proper alignment */
 }
 .product-price {
-    font-size: 50px; /* Larger for emphasis */
+    font-size: 2rem; /* Larger for emphasis */
+    margin-bottom: 1rem;
     font-weight: bold;
     color: rgb(0, 0, 0);
     letter-spacing: 1px; /* Adds subtle spacing for readability */
     text-transform: capitalize; /* Ensures first letter is uppercase */
     
     position: absolute; /* Allows precise placement */
-    top: 300px; /* Positions it near the top */
-    right: 765px; /* Aligns it to the right */
+    top: 11.3rem; /* Positions it near the top */
+    right: 42.5rem; /* Aligns it to the right */
     
     text-align: right; /* Ensures proper alignment */
 }
@@ -115,9 +122,9 @@ body {
 .quantity-label {
 
     position: absolute; /* For top-right positioning */
-    top: 490px;
-    right: 794px;
-    font-size: 20px;
+    top: 16rem;
+    right: 44.7rem;
+    font-size: 15px;
     font-weight: bold;
     color: #007bff;
     text-transform: uppercase;
@@ -127,36 +134,38 @@ body {
 
 .product-rating {
     position: absolute; /* Enables precise positioning */
-    top: 200px; /* Distance from the top */
-    right: 725px; /* Distance from the right */
+    top: 7rem; /* Distance from the top */
+    right: 39rem; /* Distance from the right */
 
-    font-size: 20px; /* Slightly larger for better visibility */
+    font-size: 20px; /* Larger for emphasis */
+    margin-bottom: 1rem; /* Slightly larger for better visibility */
     font-weight: bold; /* Makes it stand out */
     color: #007bff; /* Blue color */
     text-transform: uppercase; /* Makes it more prominent */
     letter-spacing: 1px; /* Enhances readability */
-    margin-bottom: 5px; /* Adds spacing */
+  
 }
 
 /* Description */
 .product-description {
     position: absolute; /* Enables precise positioning */
-    top: 290px; /* Distance from the top */
-    right: 337px; /* Distance from the right */
+    top: 10.3rem; /* Distance from the top */
+    right: 16.4rem; /* Distance from the right */
 
-    font-size: 20px; /* Slightly larger for better visibility */
+    font-size: 1rem; /* Larger for emphasis */
+    margin-bottom: 1rem;
     font-weight: bold; /* Makes it stand out */
     color:rgb(62, 63, 64); /* Blue color */
     text-transform: uppercase; /* Makes it more prominent */
     letter-spacing: 1px; /* Enhances readability */
-    margin-bottom: 5px; /* Adds spacing */
+   
 }
 
 /* Quantity Selector */
 .quantity-container {  
 position: absolute;
-right: 730px; /* Move it to the right side */
-top: 520px; /* Adjust spacing from top */
+right: 40rem; /* Move it to the right side */
+top: 17rem; /* Adjust spacing from top */
 display: flex;
 align-items: flex-end;
 justify-content: center;
@@ -214,13 +223,13 @@ background-color: #022b31;
 /* Add to Basket Button */
 .add-to-basket {
     display: block;
-    width: 25%;
+    width: 300px;
     background-color: #007bff;
     color: white;
     font-size: 22px;
     position: absolute;
-    left: 1600px; /* Move it to the right side */
-    top: 600px; /* Adjust spacing from top */
+    right: 32.9rem; /* Move it to the right side */
+    top: 22rem; /* Adjust spacing from top */
     align-items: flex-end;
     padding: 12px;
     border: none;
@@ -236,55 +245,11 @@ background-color: #022b31;
 }
 
 /* Customer Reviews */
-.customer-reviews {
-    margin-top: 30px;
-}
 
-.review-name-text {
-    width: 100%; 
-    max-width: 400px; 
-    padding: 10px 15px; 
-    font-size: 18px;
-    color: #007bff;
-    background-color: #f0f8ff; 
-    border: 2px solid #007bff; 
-    border-radius: 8px; 
-    outline: none; 
-    box-shadow: 0 3px 6px rgba(0, 123, 255, 0.2); 
-    transition: border 0.3s, box-shadow 0.3s; 
-    display: block; 
-    margin: 0 auto; /* Centers the text box */
-    text-align: center; /* Centers text inside the box */
-}
-.review-textbox {
-    width: 100%;
-    max-width: 500px; 
-    height: 150px; 
-    padding: 15px 20px; 
-    font-size: 20px; 
-    color: #007bff;
-    background-color: #f0f8ff;
-    border: 3px solid #007bff; 
-    border-radius: 10px; 
-    outline: none;
-    box-shadow: 0 3px 8px rgba(0, 123, 255, 0.2);
-    transition: border 0.3s, box-shadow 0.3s;
-    display: block;
-    margin: 0 auto;
-    text-align: center; 
-    resize: none; /* Prevents resizing for a cleaner layout */
-}
 
-.review-textbox:focus {
-    border: 3px solid #0056b3; 
-    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.4);
-}
-.review-name-text:focus {
-    border: 2px solid #0056b3; 
-    box-shadow: 0 4px 10px rgba(0, 86, 179, 0.4); 
-}
 .reviews-section{
     background-color:#eeeee4;
+    margin-top:140px
 }
 .review-title {
     font-size: 32px; 
@@ -295,11 +260,14 @@ background-color: #022b31;
     border-radius: 30px; 
     text-align: center;
     width: fit-content; 
-    margin: 0 auto 20px; 
+    margin: 80px auto 20px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border: 3px solid #007bff;
     text-transform: uppercase;
-    letter-spacing: 2px; 
+    letter-spacing: 2px;
+    position: relative;
+    top: 30px;
+
 }
 .review-button{
     display: block;
@@ -314,6 +282,7 @@ background-color: #022b31;
     cursor: pointer;
     text-align: center;
     transition: background 0.3s;
+    margin-bottom: 20px;
 }
 
 .modal {
@@ -825,7 +794,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-            // 🔹 Quantity Selector Script (NEW)
+            //  Quantity Selector 
     document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".quantity-container").forEach(container => {
             const minusBtn = container.querySelector(".minus");
@@ -841,7 +810,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             plusBtn.addEventListener("click", function () {
                 let value = parseInt(quantityInput.value);
-                if (value < 100) { // Adjust max limit if needed
+                if (value < 100) { 
                     quantityInput.value = value + 1;
                 }
             });
