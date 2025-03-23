@@ -1,0 +1,187 @@
+.category-row {
+    background-color: whitesmoke;
+}
+
+.table-heading, th, td {
+    text-align: left;
+    border: 2px solid lightskyblue;
+}
+
+.table-body {
+    border: 2px solid lightskyblue;
+    width: 100%;
+}
+
+.table-wrapper {
+    max-height: 900px;
+    overflow-y: auto;   
+    border: 1px solid #ddd;
+}
+
+.table-container {
+    overflow-y: auto;
+    max-height: 900px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.table-class {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.table-class th,
+.table-class td {
+    width: 20%;
+    text-align: left;
+    padding: 8px;
+    border: 2px solid lightskyblue;
+}
+
+.order-table {
+    border-bottom: none;
+}
+
+.shipping-table {
+    border-top: none;
+    margin-top: 0;
+}
+
+.order-gap {
+    margin-bottom: 40px;
+}
+
+.table-heading {
+    background-color: lightskyblue;
+}
+
+select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+select:hover {
+    border-color: #888;
+}
+
+.update{
+    margin-left:20px ;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 35px;
+}
+
+
+html[data-theme='dark'] .navbar {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+html[data-theme='dark'] .navbar a {
+    color: #fff !important;
+}
+html[data-theme='dark'] body {
+    background-color: #181818;
+    color: #ffffff;
+}
+html[data-theme='dark'] .dashboard-page {
+    background-color: #181818;
+    padding: 20px;
+}
+
+#dark-mode-toggle {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+html[data-theme='dark'] .user-dropdown,
+html[data-theme='dark'] .dropdown-menu {
+    background-color: #222 !important;
+    color: #fff !important;
+    border: 1px solid #333 !important;
+}
+html[data-theme='dark'] .user-dropdown a,
+html[data-theme='dark'] .dropdown-menu a {
+    color: #fff !important;
+}
+html[data-theme='dark'] .user-dropdown a:hover,
+html[data-theme='dark'] .dropdown-menu a:hover {
+    background-color: #333 !important;
+    color: #fff !important;
+}
+html[data-theme='dark'] .user-dropdown button,
+html[data-theme='dark'] .dropdown-menu button {
+    color: #fff !important;
+    background-color: transparent !important;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+html[data-theme='dark'] .user-dropdown button:hover,
+html[data-theme='dark'] .dropdown-menu button:hover {
+    background-color: #333 !important;
+    color: #fff !important;
+}
+html[data-theme='dark'] input,
+html[data-theme='dark'] textarea,
+html[data-theme='dark'] select {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+html[data-theme='dark'] input::placeholder,
+html[data-theme='dark'] textarea::placeholder {
+    color: #aaa;
+}
+html[data-theme='dark'] button[type="submit"],
+html[data-theme='dark'] input[type="submit"] {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+html[data-theme='dark'] button[type="submit"]:hover,
+html[data-theme='dark'] input[type="submit"]:hover {
+    background-color: #333;
+}
+
+
+html[data-theme='dark'] th{
+    background-color: #100e39   ;
+}
+
+html[data-theme='dark'] .dashboard-box{
+    background-color:   #333 ;
+}
+
+html[data-theme='dark'] .dashboard-heading{
+    color: white ;
+}
+
+html[data-theme='dark'] td{
+    background-color: #444;
+}
+
+html[data-theme='dark'] .table-body tr td:first-child,
+html[data-theme='dark'] .table-body tr td:first-child p,
+html[data-theme='dark'] .table-body tr td:first-child a {
+    color: white !important;
+}
