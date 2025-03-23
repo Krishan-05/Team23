@@ -10,18 +10,15 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $conn->real_escape_string($_POST['email']);
 
-    // Check if email is already subscribed
     $checkQuery = "SELECT * FROM NewsletterSubscriptions WHERE email = '$email'";
     $result = $conn->query($checkQuery);
 
     if ($result->num_rows > 0) {
         echo "This email is already subscribed!";
     } else {
-        // Insert email into database
         $sql = "INSERT INTO NewsletterSubscriptions (email) VALUES ('$email')";
 
         if ($conn->query($sql) === TRUE) {

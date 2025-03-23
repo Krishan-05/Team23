@@ -1,0 +1,137 @@
+.review-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 40px 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+.review-container h2 {
+    font-size: 2.2em;
+    color: #100E39;
+    margin-bottom: 20px;
+}
+
+.review-container form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+}
+
+.review-container label {
+    font-weight: 600;
+    color: #333;
+}
+
+.review-container input[type="text"],
+.review-container textarea {
+    width: 95%;
+    padding: 12px 15px;
+    font-size: 1em;
+    border: 2px solid #100E39;
+    border-radius: 8px;
+    outline: none;
+    background-color: #fafafa;
+}
+
+.review-container textarea {
+    resize: none;
+}
+
+.review-container .message {
+    width: 100%;
+    max-width: 100%;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.review-container .message:empty {
+    display: none;
+}
+
+.review-container .message.success {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+.review-container .message.error {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+.review-container button {
+    width: 95%;
+    padding: 15px;
+    background: linear-gradient(135deg, #FF5B00, #cc4800);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 91, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.review-container button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-25deg);
+}
+
+.review-container button:hover::before {
+    left: 125%;
+}
+
+.review-container button:hover {
+    background: linear-gradient(135deg, #cc4800, #FF5B00);
+    box-shadow: 0 6px 20px rgba(255, 91, 0, 0.6);
+}
+
+.review-container a {
+    margin-top: 20px;
+    display: inline-block;
+    color: #ffffff;
+    background: #100E39;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.review-container a:hover {
+    background: #4b0bc3;
+}
+
+@media (max-width: 768px) {
+    .review-container {
+        width: 95%;
+        padding: 30px;
+    }
+
+    .review-container h2 {
+        font-size: 2em;
+    }
+}
