@@ -4,6 +4,8 @@
   </a>
 </p>
 
-## About beActive
+## beActive
 
 At beActive, our team is dedicated to providing you with the best products, supplements and apparel to help you on your fitness journey. Whether you're a beginner or a fitness pro we have you covered! join beActive today!
+
+
