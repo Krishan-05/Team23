@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Carousel Functionality
     const items = document.querySelectorAll('.carousel-item');
     const prev = document.querySelector('.prev');
     const next = document.querySelector('.next');
@@ -9,29 +8,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentItem = items[current];
         const newItem = items[newIndex];
 
-        // Reset transforms and transitions
         currentItem.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         newItem.style.transition = 'none';
 
-        // Position the new item offscreen
         newItem.style.transform = direction === 'next' ? 'translateX(100%)' : 'translateX(-100%)';
         newItem.style.opacity = '0';
 
-        // Trigger layout reflow to apply the offscreen position
-        newItem.offsetHeight; // Forces reflow
+        newItem.offsetHeight; 
 
-        // Animate current item out and new item in
         currentItem.style.transform = direction === 'next' ? 'translateX(-100%)' : 'translateX(100%)';
         currentItem.style.opacity = '0';
         newItem.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         newItem.style.transform = 'translateX(0)';
         newItem.style.opacity = '1';
 
-        // Update classes
         currentItem.classList.remove('active');
         newItem.classList.add('active');
 
-        // Update current index
         current = newIndex;
     }
 
@@ -45,14 +38,4 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel(nextIndex, 'next');
     });
 
-    // Newsletter Subscription Functionality
-    document.getElementById('newsletter-form').addEventListener('submit', function (event) {
-        // Prevent the form from submitting normally
-        event.preventDefault();
-
-        // Display the success message
-        alert('Subscription has been successful!\nCheck your email for our newsletter!');
-        
-
-    });
 });
