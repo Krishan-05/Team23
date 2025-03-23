@@ -106,11 +106,28 @@
         }
 
 
-        document.getElementById('dark-mode-toggle').addEventListener('click', function() {
+        document.addEventListener('DOMContentLoaded', function() {
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            darkModeToggle.textContent = '☀️';
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            darkModeToggle.textContent = '🌙';
+        }
+        darkModeToggle.addEventListener('click', () => {
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-            localStorage.setItem('theme', isDark ? 'light' : 'dark');
-            this.textContent = isDark ? '🌙' : '☀️';
+            if (isDark) {
+            document.documentElement.removeAttribute('data-theme');
+            darkModeToggle.textContent = '🌙';
+            localStorage.setItem('theme', 'light');
+            } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            darkModeToggle.textContent = '☀️';
+            localStorage.setItem('theme', 'dark');
+            }
+        });
         });
     </script>
 </x-app-layout>
